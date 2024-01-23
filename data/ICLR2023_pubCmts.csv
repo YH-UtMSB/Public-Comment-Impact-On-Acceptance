@@ -1,0 +1,1202 @@
+,paper_id,paper_title,cmt_id,cmt_title,cmt_signatures,cmt_content
+0,6iEoTr-jeB7,Learning Continuous Normalizing Flows For Faster Convergence To Target Distribution via Ascent Regularizations,RSHAXYU0R1,Probably missing citations and some questions,['~Kaiwen_Zheng2'],"I appreciate the author's idea of using score on the trajectory as regularizer. But from my view, is the main theorem of this paper, Theorem 2 (Instantaneous Change of Score Function) the same as Theorem D.1 in ScoreODE [1]? I hope the author can add some citations and discuss their relations.
+
+Another thing is from the practical perspective: I think one of the main problems of FFJORD is time consumption, since solving the ode (Instantaneous Change of Log-likelihood) is highly intractable on high-dimensional case. The author's regularizer further needs to solve a more complex ode (Instantaneous Change of Score) when training, so I'm curious about the tractability on real datasets such as CIFAR-10. In this sense, I think the author's method doesn't solve the real critical problem of FFJORD. I hope the author can make some clarification on this question.
+
+As far as I know, the recent training of CNF is mostly through score-based models, such as ScoreFlow [2] and ScoreODE [1]. I think it will be more convincing if the author can make more related comparisons, both theoretically and experimentally. 
+
+In summary, the author proposes a regularizer to stabilize the training of CNFs. While experimentally making improvements, I have some questions about its relationship with some recent works, especially score-based models, and the experimental advantage over them. I hope more demonstration about these questions can make this work more complete.
+
+[1] Lu, Cheng, et al. ""Maximum likelihood training for score-based diffusion odes by high order denoising score matching."" International Conference on Machine Learning. PMLR, 2022.
+[2] Song, Yang, et al. ""Maximum likelihood training of score-based diffusion models."" Advances in Neural Information Processing Systems 34 (2021): 1415-1428."
+1,0OlEBibFa_g,"Detecting Out-of-Distribution Data with Semi-supervised Graph “Feature"" Networks",MwBZ9qaqVj,Attribution of library used for experiments,['~Benedek_Andras_Rozemberczki1'],"It is reasonable to assume that the paper uses the Karate Club library for the experiments extensively, yet it is not cited. Please add the citation if it was used for the experiments:
+
+```bibtex
+@inproceedings{karateclub,
+       title = {{Karate Club: An API Oriented Open-source Python Framework for Unsupervised Learning on Graphs}},
+       author = {Benedek Rozemberczki and Oliver Kiss and Rik Sarkar},
+       year = {2020},
+       pages = {3125–3132},
+       booktitle = {Proceedings of the 29th ACM International Conference on Information and Knowledge Management (CIKM '20)},
+       organization = {ACM},
+}
+```
+
+"
+2,cZM4iZmxzR7,Simple Spectral Graph Convolution from an Optimization Perspective,f_UYiyBMbbQ,Misattribution of datasets,['~Benedek_Andras_Rozemberczki1'],"The paper misattributes the Chameleons and Squirrels datasets. These datasets were proposed in this ICLR submission:
+
+https://openreview.net/forum?id=HJxiMAVtPH&referrer=%5Bthe%20profile%20of%20Carl%20Allen%5D(%2Fprofile%3Fid%3D~Carl_Allen1)
+
+The paper cited by the authors took these datasets and used them for benchmarking. The accepted version of the ICLR submission which proposed these datasets is:
+```bibtex
+>@article{musae,
+          author = {Rozemberczki, Benedek and Allen, Carl and Sarkar, Rik},
+          title = {{Multi-Scale Attributed Node Embedding}},
+          journal = {Journal of Complex Networks},
+          volume = {9},
+          number = {2},
+          year = {2021},
+}
+```"
+3,cZM4iZmxzR7,Simple Spectral Graph Convolution from an Optimization Perspective,1zQPZtBK4X,Relevant Work,['~Sitao_Luan1'],"Thank the authors for having this interesting paper which leverages Krylov subspace for graph representation learning. I would like to highlight one relevant work [1] that proposes truncated Krylov and snowball networks for deep GNNs. If you are interested in heterophily problem and would like to know how snowball GNNs can perform well on heterophilic graphs, we want to introduce our recent work [2]. Good luck to your rebuttal.
+
+[1] Luan S, Zhao M, Chang X W, et al. Break the ceiling: Stronger multi-scale deep graph convolutional networks[J]. Advances in neural information processing systems, 2019, 32.
+
+[2] Luan S, Hua C, Lu Q, et al. Revisiting Heterophily For Graph Neural Networks[J]. NeurIPS 2022. arXiv:2210.07606, 2022.
+"
+4,688hNNMigVX,Learning a Data-Driven Policy Network for Pre-Training Automated Feature Engineering,eDYga8Xhm7,Unable to reproduce the experiments,['~Tianping_Zhang1'],"Thanks for your interesting work. We are attracted by your work and try to run your models on our datasets. However, critical files are missing and the codes in your supplementary materials cannot run. For example, the ‘instance_selection’ file imported in main_attention.py is missing. In addition, it would be much appreciated if you could provide all the dependencies needed to run the codes as well as all the scripts and hyperparameters needed to reproduce the experimental results."
+5,688hNNMigVX,Learning a Data-Driven Policy Network for Pre-Training Automated Feature Engineering,SFaE6o03E1x,From a concurrent submission to ICLR2023 ,['~Mark_Wang1'],"Thanks for the interesting work. We are coming from a concurrent submission to ICLR2023 on the topic of automated feature generation (https://openreview.net/forum?id=CnG8rd1hHeT&noteId=OhEP681JJL) (we used very different approach though). Our algorithm is very lightweight and efficient, so we quickly test our methods OpenFE on the datasets you provided in the supplementary materials. Surprisingly, we find out that OpenFE outperforms FETCH on 17 out of 20 datasets used in your paper. We have investigated the details of your supplementary materials and tried our best to ensure fair comparisons on the same experimental settings. We have released the codes in our supplementary materials, and you are welcome to reproduce our results (please refer to more details in our response to all reviewers https://openreview.net/forum?id=CnG8rd1hHeT&noteId=KihCSC53QS0). In addition, we cannot reproduce your results due to the absence of crucial files in the supplementary materials.
+
+To abide by the ICLR anonymity rule, we asked a third party to post the comment for us (so Mark Wang is not a co-author). 
+"
+6,688hNNMigVX,Learning a Data-Driven Policy Network for Pre-Training Automated Feature Engineering,iKfplf6OmL,This is an updated version of our previous response.,['~Mark_Wang1'],"Dear FETCH authors.
+
+We agree that it would be perfectly fine that a paper does not compare with concurrent submission. In this regard, our first comments may unfortunately bring unwanted attention that could negatively impact the reviewers' judgement. It was a bit late for us to published further response since ICLR didn't allow public comments for some time.  Fortunately, it turned out that this does not impact the reviewers' and AC's decision.
+
+While we still think it is important to report out-of-sample scores, we will leave a formal discussion and comparison to the next version of the OpenFE paper. Indeed, many experimental details may impact the performance, and it would be hasty to publish comparison results during the short period of the rebuttal. Hence, we retract the experimental results in our second response, and we will make a formal experimental comparison in the OpenFE paper. 
+
+Finally, our previous response did not mean to be unfriendly, and we hope our discussion is only about machine learning.
+Indeed, we really appreciate that FTECH authors care this problem as we do and provide interesting methods for tackling it.
+
+Thanks for your attention.
+
+OpenFE authors."
+7,pRCMXcfdihq,Protein Sequence and Structure Co-Design with Equivariant Translation,uzB2zzYJBT,some confusion about your cdr design benchmark,['~Chentong_Wang1'],"I am very confused by your cdr benchmark, because your paper said that you do all rmsd metric by align designded structure on frame, but in TERATIVE REFINEMENT GRAPH NEURAL NETWORK FOR ANTIBODY SEQUENCE-STRUCTURE CO-DESIGN, Jin et al. (2021), they only use frame sequence as coarsed grained node, and the predict result is only the cdr coords and sequence, which means there is no possibility to test its performance on framed aligned rmsd since there is no way to know how predicted cdr graft to native frame, it would be preferred to describe a little how you recover backbone from coarse grainde node to do the frame align since without doing big modification, it cant be made by origin model"
+8,6ruVLB727MC,UL2: Unifying Language Learning Paradigms,0FZGVuTXak,"""Successfully leverag[ing] CoT"" claim seems dubious",['~Stella_Rose_Biderman1'],"You write
+
+> Here we demonstrate that UL2 20B is the first publicly available pre-trained model (without any fine-tuning) to successfully leverage CoT prompting to solve multi-step arithmetic and common-sense tasks.
+
+I have two issues with this claim. Firstly, the performance improvement from CoT is quite small as shown in Table 15. The average improvement is from 13.5 to 15.3, with some improvements being as small as from 4.1 to 4.4. When someone says that they successfully used a technique to solve arithmetic tasks, I expect that to mean that they performed well at the tasks (which UL2 doesn't) and performed much better than they would have without the tech (which is at best non-obvious). Secondly, you repeatedly state variants on ""UL2 is the first open source and non-large (<100B) parameter scale model that benefits from CoT reasoning."" However I see no evidence for a claim like this in your paper. It is the first open source < 100B parameter model that has been *evaluated using CoT prompting* as far as I am aware, but your claim specifically states that models like EleutherAI's GPT-NeoX-20B, BigScience's T0++, and Meta's OPT-66B don't benefit from CoT prompting. In order to claim this, you need to have evaluated those models and found that they don't benefit from CoT prompting."
+9,wKPmPBHSnT6,Ordered GNN: Ordering Message Passing to Deal with Heterophily and Over-smoothing,YUatcc8hzq,Misattribution of datasets,['~Benedek_Andras_Rozemberczki1'],"The paper misattributed the authorship of the Chameleons and Squirrels datasets. These datasets were proposed in this ICLR submission:
+
+https://openreview.net/forum?id=HJxiMAVtPH
+
+The Pei et al. paper cited by the authors took the Squirrel and Chameleons datasets and used those for benchmarking, but had nothing to do with the creation of the datasets. The correct citation for the paper which proposed the datasets is:
+
+```bibtex
+>@article{musae,
+          author = {Rozemberczki, Benedek and Allen, Carl and Sarkar, Rik},
+          title = {{Multi-Scale Attributed Node Embedding}},
+          journal = {Journal of Complex Networks},
+          volume = {9},
+          number = {2},
+          year = {2021},
+}
+```
+"
+10,PUIqjT4rzq7,Training-Free Structured Diffusion Guidance for Compositional Text-to-Image Synthesis,KX86whvifP,provided code is not working!,['~Mehmet_Ozgur_Turkoglu1'],"Thanks for the interesting work. I spent quite few time making the code run but the provided code does not work. It does not have a README file and can not be run readily. For instance, even the default parameter for structural attention is set to None as follows (txt2img.py, line 399).
+
+    parser.add_argument(
+        ""--struct_attn"",
+        type=str,
+        choices=['none', 'extend_str', 'extend_seq', 'align_seq'],
+        default='none'
+    )
+
+
+Text conditioning (c) returns a list as follows (txt2img.py, line 562):
+
+                            if opt.struct_attn == 'extend_str':    
+                                # repeat each NP in string to expand the embed seq
+                                for i in range(1, len(nps)):
+                                    nps[i] = ("" "" + nps[i]) * (model.cond_stage_model.max_length // len(nps[i].split()))
+                                nps = [[np]*len(prompts) for np in nps]
+                                c = [model.get_learned_conditioning(np) for np in nps]
+
+
+This c goes to a sampler (e.g plm_sampler) as follows: 
+
+https://github.com/CompVis/stable-diffusion/blob/69ae4b35e0a0f6ee1af8bb9a5d0016ccb27e36dc/ldm/models/diffusion/plms.py#L82
+
+        if conditioning is not None:
+            if isinstance(conditioning, dict):
+                cbs = conditioning[list(conditioning.keys())[0]].shape[0]
+                if cbs != batch_size:
+                    print(f""Warning: Got {cbs} conditionings but batch-size is {batch_size}"")
+            else:
+                if conditioning.shape[0] != batch_size:
+                    print(f""Warning: Got {conditioning.shape[0]} conditionings but batch-size is {batch_size}"")
+
+
+It already gives an error here because the sampler expects either a tensor or a dictionary. 
+
+I fixed these flaws but I do not get good results as shown in the paper. It would be very helpful for reproducibility if the authors can share the working version of their codes.
+
+
+"
+11,0pdSt3oyJa1,Specformer: Spectral Graph Neural Networks Meet Transformers,xDiWOsnVeA,Misattribution of certain datasets,['~Benedek_Andras_Rozemberczki1'],"The paper misattributed the authorship of the Chameleons and Squirrels datasets. These datasets were proposed in this ICLR submission:
+
+https://openreview.net/forum?id=HJxiMAVtPH
+
+The Pei et al. paper cited by the authors took the Squirrel and Chameleons datasets and used those for benchmarking, but had nothing to do with the creation of the datasets. The correct citation for the paper which proposed the datasets is:
+
+```bibtex
+>@article{musae,
+          author = {Rozemberczki, Benedek and Allen, Carl and Sarkar, Rik},
+          title = {{Multi-Scale Attributed Node Embedding}},
+          journal = {Journal of Complex Networks},
+          volume = {9},
+          number = {2},
+          year = {2021},
+}
+```"
+12,14-kr46GvP-,Efficient Deep Reinforcement Learning Requires Regulating Statistical Overfitting,8Y3Nfe2BUz,Regarding the Correctness of Some Important Claims in the Paper,['~Zhixuan_Lin1'],"Dear authors, 
+
+I am excited to see a paper that explicitly tries to understand the issue of using high UTD in online RL since I've spent quite some time on this topic, and your work presents an interesting hypothesis and analysis. However, I have some questions about some claims and results in the paper. In particular, some claims in the paper directly contradict my own experience (with the same codebase) and also some previous work.
+
+## Regarding ""degradation from ramping up the UTD cannot be explained by overestimation""
+
+1. It is claimed in the paper that
+
+   > ""*This suggests that higher UTDs do not lead to any more overestimation than the smaller UTD values that work well, and hence the performance degradation from ramping up the UTD cannot be explained by overestimation due to action distribution shift*."" 
+
+   I have spent quite a lot of time experimenting with SAC and SAC + resets with high UTDs on DMC tasks **using the same jaxrl codebase** as in the paper. My experience has been that **except for `fish-swim`** (the only environment in the paper for the overestimation analysis), there exists significant value overestimation on **almost all other environments** in which resetting provides a significant improvement when using a high UTD (e.g., `quadruped-run`, `quadruped-walk`, `humanoid-run`, `hopper-hop`, with UTD=8). In fact, the overestimation is so obvious that you don't even need the ground truth value to tell whether it is overestimating. It is essentially critic divergence (e.g., Q-estimate can go to insane values like $100000$). **And this certainly becomes worse with even higher UTDs** in my experiments. Therefore, based on my experience, this claim seems to be incorrect. It is possible that the feature normalization technique you used in the paper mitigates critic divergence, but I don't think it will eliminate overestimation completely. Besides, it seems that in your main results in Section 5 you are not using feature normalization.
+
+2. The metric (Q value gap between actions from your current policy and actions from your buffer) you use to measure overestimation may not reflect the actual degree of overestimation. It is totally possible to have a low Q-value gap while overestimating the values for actions coming from **both your current policy and from the replay buffer.** The only way to measure overestimation is by estimating the ground truth values with on-policy Monte-Carlo rollouts (note we need to take into account the entropy bonus of SAC and the discount factor) and comparing it with your current Q-value. Therefore I believe Figure 2 does not provide valid evidence that overestimation doesn't correlate with UTD. Besides, even with the right metric unless this analysis is on all environments, one cannot draw a strong conclusion that the issue is not value overestimation.
+
+3. REDQ [1] (which is also referenced in your papers) shows that high UTD (20) leads to overestimation (e.g., Figure 7 in their paper), and their whole approach is just based on this observation. Besides, if overestimation is not an issue and statistical overfitting is indeed the issue, it is hard to explain why REDQ will perform so well given that they don't do anything to fix overfitting (if it exists). 
+"
+13,4gc3MGZra1d,On Representing Mixed-Integer Linear Programs by Graph Neural Networks,hZcCh27efK,Two suspiciously similar submissions,['~Fanchen_Bu1'],"https://openreview.net/forum?id=4gc3MGZra1d
+https://openreview.net/forum?id=cP2QVK-uygd
+
+The above two submissions look suspiciously similar.
+Would the authors like to explain the similarity and elaborate on the differences?"
+14,Hcq7zGgcsOg,Curriculum-inspired Training for Selective Neural Networks,1akr9l-yoP,The idea of this paper is novel but the baseline is not strong,['~Qiang_Ding1'],"The idea of this paper seems interesting. As far as I know, training a selective function is not easy. So it is reasonable to apply curriculum learning to the selective classifier in order to train the selective function more smoothly and easily. 
+However, the baseline SelectiveNet is not the state-of-the-art. The current state-of-the-art selective classifier is SAT [1]. I am curious about whether the curriculum-inspired routine proposed by this paper is effective on top of SAT?
+
+
+[1] Lang Huang, Chao Zhang, and Hongyang Zhang. Self-adaptive training: beyond empirical risk minimization. Advances in Neural Information Processing Systems, 2020."
+15,CQsmMYmlP5T,Git Re-Basin: Merging Models modulo Permutation Symmetries,9liIVMeFFnW,Git Clone or Git Re-Basin? (1/3),['~Sidak_Pal_Singh1'],"Dear ICLR community, authors and reviewers, 
+\
+&nbsp;
+
+It is with great regret that we need to bother you for a case where we believe *misinformation is being seeped into the scientific process*.
+
+> In short, we wish to demonstrate that this work, Git Re-Basin, is but a mere **rehash** *(clone?)*  of past works [1-5]. 
+
+\
+&nbsp;
+More concretely, we aim to convey the following:
+- Method 1 of Git Re-Basin is **provably identical** to the activations-based alignment of OTFusion [3].
+- Methods 2 and 3 of Git Re-basin are **highly similar** to the approaches in past work [1,2,3,4] and *yet not a single comparison* to baselines has been performed.
+- Many of the results or observations *have already been shown in similar forms* in past works, **but are presented anew** in this work.
+- The paper cites some of these works [3-5] as *mere lip service*, while **not accurately relating key contributions**.
+- Lastly, in light of the evidence above, we conclude that numerous *claims in the paper are exaggerated, invalid, or deceptive*.
+
+\
+&nbsp;
+*We want to stress that there is absolutely nothing wrong with building on related work, but one must be honest and not deceptive.* Presently, their *premier ‘contribution of novel algorithms’ will not be novel*; the second regarding SGD seems to be already *under some contention* as alluded to by Reviewers qnqB and Nc4c;  and the third about empirical results with MLPs/CNNs/ResNets on MNIST, CIFAR10, and CIFAR100 — *were more or less already known* [2-6].
+
+----
+\
+&nbsp;
+### (A) Mathematical proof of equivalence to [3]
+
+What better way to start than by showing that Method 1, based on matching the activations, of Git Re-Basin can be mathematically proved to be identical to one of the approaches used in Singh & Jaggi (2019) [3]. The main idea of [3] is to utilize Optimal Transport (OT) to first obtain a layerwise alignment of the given networks and then, post-alignment, average their parameters respectively.
+
+The gist of the proof below (which is fairly straightforward, and can be found in more generality for other kinds of costs in Corollary 1 https://mathematical-tours.github.io/book-sources/optimal-transport/CourseOT.pdf) is that for uniform marginals and Euclidean ground metric, the solution set of both Method 1 and OT-based approach of [3] is identical owing to the classic Birkhoff-von Neumann Theorem.
+
+To recap, the OT problem can be expressed as the following linear program:
+$$\underset{{\bf{T}} \in {\mathbb{R}}\_{+}^{d\times d},{\bf{T}}\bf{1}=\alpha,{\bf{T}}^\top\bf{1}=\beta}{\operatorname{\mathop{\mathrm{argmin}}\limits}}\quad \langle {\bf{T}}, {\bf{C}} \rangle_F$$
+where, the transport plan ${\bf{T}} \in {\mathbb{R}\_{+}^{d \times d}}$ indicates how much of the ‘goods’ be moved from a ‘source location' to a ‘destination location', and must satisfy the mass-conservation constraints at the source and the destination, i.e.,  ${\bf{T}}\bf{1}=\alpha$ and ${\bf{T}}^\top\bf{1}=\beta$. Further, the ground cost matrix is denoted as ${\bf{C}}$ and the entries of which specify the per-unit transportation cost between the corresponding source-destination pair.
+
+For simplicity, in [3], all neurons are assumed to be of equal importance (same amount of ‘supplies’ and ‘demands’ in the above parlance), and thus we can set $\alpha=\beta=\frac{1}{d}\bf{1}$. For convenience, let us call the Transport map $\bf{T}$ multiplied by the scalar $d$ as $\bf{P}$, i.e., ${\bf{P}} = d  {\bf{T}}$, and $\bf{P}$ now is a bistochastic matrix (all rows and columns must sum to $1$). 
+
+Now, let us consider the activation-based approach of [3], where the cost matrix $C$ can be represented, using the notation of Git Re-Basin, as $c_{ij} =\||{\bf{Z}}^{(A)}\_{i,:} - {\bf{Z}}^{(B)}\_{j,:}\||^2_2$.
+
+
+Then using the shorthand $\bf{z}\_A  = \operatorname{\mathop{\mathrm{diag}}}\left({{\bf{Z}}^{(A)}} {{\bf{Z}}^{(A)}}^\top\right)$ and $\bf{z}\_B = \operatorname{\mathop{\mathrm{diag}}}\left({{\bf{Z}}^{(B)}} {{\bf{Z}}^{(B)}}^\top\right)$ for extracting the diagonal (vector) of the respective matrices, we can express the cost matrix $C$ alternatively as:
+  $$ {\bf{C}}=\bf{z}\_A \bf{1}^\top + \bf{1}{\bf{z}\_B^\top} - 2  {\bf{Z}}^{(A)} {{\bf{Z}}^{(B)}}^\top.$$
+
+So, we can express the OT problem as follows:
+  $$  \underset{{\bf{P}} \in {\mathbb{R}}\_{+}^{d\times d},{\bf{P}}\bf{1}=\bf{1}, {\bf{P}}^\top\bf{1}=\bf{1}}{\operatorname{\mathop{\mathrm{argmin}}\limits}}\quad {\langle {\bf{P}}, \bf{z}\_A \bf{1}^\top + \bf{1}{\bf{z}\_B}^\top - 2  {\bf{Z}}^{(A)} {{\bf{Z}}^{(B)}}^\top\rangle}_F.  $$
+
+  Now, using the mass-conservation constraints, we get the following equivalent problem
+  $$  \underset{{\bf{P}} \in {\mathbb{R}}\_{+}^{d\times d},{\bf{P}}\bf{1}=\bf{1}, {\bf{P}}^\top\bf{1}=\bf{1}}{\operatorname{\mathop{\mathrm{argmin}}\limits}}\quad - \langle {\bf{P}},  {\bf{Z}}^{(A)} {{\bf{Z}}^{(B)}}^\top\rangle_F.  $$
+
+Hence, we recover that the optimization objective above is identical to that in Eqn1. of this work. 
+
+*(continued)*"
+16,CQsmMYmlP5T,Git Re-Basin: Merging Models modulo Permutation Symmetries,JOEIhp42Z6,error: Please commit your changes before merging.,['~Keller_Jordan1'],"Git Re-Basin presents exciting new results: zero-barrier mode connectivity for ResNet20s on CIFAR-10, and an improvement of the test set performance of merged ResNet50s on ImageNet from ~1% to ~50%.
+
+The authors argue that their results are due to several novel neuron-alignment algorithms, including a new and efficient weight-matching scheme. Other commenters have argued that some of these may be special cases of previously designed algorithms, but we do not focus on this point.
+
+Instead, **we claim that the new results of Git Re-Basin are essentially the product of two implementation details**, both of which relate to *controlling the internal statistics of the interpolated networks* [3]:
+
+- For **CIFAR-10:** The authors use ResNets in which the standard BatchNorm layers have been swapped out for LayerNorm.
+- For **ImageNet:** The authors reset BatchNorm layer statistics after merging.
+
+In particular, [3] finds that if the above details are taken into account, then the baseline neuron-alignment method of [1] (a highly-cited work that dates back to 2015) is sufficient to accomplish the results of Git Re-Basin. Whether the strong OTfusion method of [2] could further improve on these results remains a plausible and interesting open question.
+
+We believe that the main text of the paper, as it currently stands, is unclear. Improvements to existing neuron-alignment algorithms, which do not appear to be necessary for such results, are emphasized. And the two essential changes above are relegated to the appendix, rather than committed to the main text. We feel that the relative importance of these different factors should be made clear.
+
+Thank you for your time.
+
+[1] Li, Yixuan, et al. ""Convergent learning: Do different neural networks learn the same representations?."" arXiv preprint arXiv:1511.07543 (2015).
+
+[2] Singh, Sidak Pal, and Martin Jaggi. ""Model fusion via optimal transport."" Advances in Neural Information Processing Systems 33 (2020): 22045-22055.
+
+[3] Jordan, Keller, et al. ""REPAIR: REnormalizing Permuted Activations for Interpolation Repair."" arXiv preprint arXiv:2211.08403 (2022).
+"
+17,6axIMJA7ME3,Compositional Task Representations for Large Language Models,cPO9uxLzKKM,Good execution,['~Anirudh_Goyal1'],"Hello, 
+
+I like the idea  as well as the execution of the idea in this paper. This is good work! :) 
+
+In our work, we have explored ""learning a discrete, compositional/factorial codebook"" for various different problems and shared the similar motivation as here i.e., by training on compositions of many codes, it may be possible to generalize to novel combinations (that said, we have not explored this on the dataset/problem which this paper is trying to do). 
+
+- [Discrete-Valued Neural Communication (NeurIPS'21)](https://arxiv.org/abs/2107.02367): Learning a factorial codebook helps different components in multi-component architecture (like slots in slot-based architecture, positions in transformers, and nodes in graph based methods) generalize systematically. 
+
+- [Discrete Key Value Bottleneck (arXiv)](https://arxiv.org/abs/2207.11240): Basic idea is to have a multi-head factorial codebook of learnable (key, value) pairs, where the information about the input is bottleneck via the learnable factorial codebook (key-value pairs). Here, the keys are ""optimised"" with respect to the encoder, and the ""values"" are optimised with respect to downstream decoder. During adaptation, we only adapt a subset of the values to achieve rapid adaptation, whereas everything else is kept fixed (here, the adaptation is task-agnostic).
+
+- [Discrete Factorial Representations as an
+Abstraction for Goal Conditioned RL (NeurIPS'22) ](https://arxiv.org/abs/2211.00247): [There's no way authors could have been aware of this work as it came on arXiv after the deadline) Recently, we also explored the use of such a compositional bottleneck for visual goal-based reasoning, where we tried to focus on ""goal-specification"" using the learned compositional codebook.
+
+
+Thank you for your time in reading my message. 
+
+"
+18,6dlC7E1H_9,Teaching Algorithmic Reasoning via In-context Learning,DKTl7zObWNn,prompt design,['~Ekin_Akyürek1'],"Dear authors,
+
+I am really sorry to be that person that points out their own work. But, I see that some of the prompt designs proposed in this paper have similarities to what we've discussed in our analysis post. We had analyzed & improved scratchpads/CoTs for the addition task in the following post:
+
+Title: Notes on Teaching GPT-3 Adding Numbers  
+Link: https://lingo.csail.mit.edu/blog/arithmetic_gpt3/
+
+Please see the prompts and code that I used to produce these results:   
+Code: https://github.com/ekinakyurek/gpt3-arithmetic
+
+For example, the authors discuss that the fundamental issue with scratchpad style prompts is that the rules can be ambigious to the model and the scratchpad should be annotated with natural language so that model can infer the rules better:
+
+>  But from the scratchpad-style example the model could have concluded that the carry is 1 whenever we add two even digits together and 0 otherwise, or that the first digit-pair generates a carry of 1, the
+second digit-pair generates a carry of 0, and so on. In order for the model to extrapolate the correct
+pattern, it must be biased in such a way that the general and correct rule is the default interpretation.
+Such alignment, however, can not be reliably expected from current mode
+
+Something similar we say in our post:
+>... a scratchpad must not leave anything to interpretation by the model and place appropriate markers. For instance, the tri-way sum without carry-over markers (1+8+9) requires the model to infer which summand is the carry-over, and thus results in poor performance.
+
+Overall, our prompts in the post already adds natural language explanations to the scrachpad-prompts to improve the performance in the addition task --- this shared feature is what the authors listed first in the contribution section:
+
+> We introduce Algorithmic Prompting, which involves providing a detailed description of
+the algorithm execution on running examples, and **using explicit explanation and natural
+language instruction to remove ambiguity**. For a comparison of algorithmic prompting to
+existing prompting techniques, see Section 2 and Table 1.
+
+I appreciate if you could've discussed this in the paper and compare given these similarities.
+
+
+Best regards"
+19,0g0X4H8yN4I,​​What learning algorithm is in-context learning? Investigations with linear models,So3o14o11D,In-Context learning?,['~Jian-Guang_Lou1'],"The paper presents a very interesting topic, especially the probing results. I have a question about the experiment and the conclusion.
+
+As mentioned by the authors, in-context learning focuses on the capability that a model can ""map from sequences of (x, f(x)) pairs to accurate predictions f(x') on novel inputs x'.""  Based on the definition the authors gave, to demonstrate the in-context learning capability, we need to make sure that the model learns a different linear function f(x') that is never seen in the training dataset based on the input examples in context.
+
+The experiments in this paper may not be enough to prove this. In fact, for all linear function examples, the model only needs to learn a single function to handle all cases rather than different linear functions for different cases. For example, given a set of [x_i, y_i], and x_n, we want to predict the value of y_n. Because (y_i-y_0)/(x_i-x_0)=(y_n-y_0)/(x_n-x_0) is always correct for all linear functions, therefore, the model only needs to learn a single function (e.g., y_n = y_0+(x_n-x_0)*(y_i-y_0)/(x_i-x_0) for no-noise experiments) to predict y_n rather than different f(x') for different input context.
+
+In the experiments, each in-context dataset is a sequence of 40 (x, y) pairs. All training samples and testing samples have the identical length, which increases the possibility of that the model only learns a single model for all cases including training and testing data.
+
+I will suggest to conduct experiments on varying length of in-context dataset to make the experiment more strong. Especially, the length of in-context dataset in the test should be different from that in the training. If the experiments still give positive results, the claim of this paper may be more convincing.
+"
+20,Loek7hfb46P,Fast Sampling of Diffusion Models with Exponential Integrator,F1aYS86qWAU,Thank you for comparing with DPM-Solver!,['~Cheng_Lu5'],"I highly appreciate it that the authors discuss the comparison between DPM-Solver and DEIS in Appendix B. These two works are concurrent and coincidently use the same technique called ""exponential integrators"" for accelerating the sampling by diffusion models. 
+
+However, despite the similarity, I think these two works have many differences, and some of the claims in Appendix B about DPM-Solver seem inaccurate. It would be much perfect if the authors could clarify the comparisons.
+
+Below I list some of my concerns. As I did not fully understand this paper, it may have some mistakes. I would appreciate it if the authors could address the following questions and discuss the differences more.
+
+## 1. DPM-Solver is not the special case of $\rho$RK-DEIS.
+The $\rho$RK-DEIS uses a change-of-variable for time from $t$ to $\rho$, and for data from $x_t$ to $y_t$. Such change-of-variable makes the diffusion ODE become a pure ODE w.r.t. the noise prediction model. Then the author uses the classical Runge-Kutta methods to solve such ODE and name it as $\rho$RK-DEIS.
+
+However, DPM-Solver uses a change-of-variable from $t$ to the log-SNR $\lambda=\log\alpha_t - \log\sigma_t$. Such a change-of-variable method is **another key contribution** of DPM-Solver because:
+- It provides a very simplified formulation of the exact solution of diffusion ODEs and makes the sampling by diffusion ODEs invariant to the noise schedule (please see Appendix A in DPM-Solver for details).
+- Because of such change-of-variable, the coefficients in the Taylor expansion are all **analytical** and can be exactly computed. (the coefficients are something like $\int e^{-\lambda}\lambda^k d\lambda$ and can be computed by repeatedly applying $k$ times of integration-by-parts method (and we have provided the detailed coefficients in the Appendix). 
+
+Moreover, on CIFAR-10 with continuous-time diffusion models, the FID results of DPM-Solver are also quite different from the $\rho$RK-DEIS. In fact, **the results of DPM-Solver are much better than those of $\rho$RK-DEIS**.
+
+Therefore, as $\rho$RK-DEIS uses a different change-of-variable, it is essentially different from DPM-Solver. And I think the detailed updating equations of $\rho$RK-DEIS are different from those of DPM-Solver. Therefore, I don't think DPM-Solver is a special case of DEIS.
+
+## 2. DPM-Solver can also accelerate the log-likelihood evaluation
+As far as I understand, DEIS accelerates the log-likelihood evaluation by only accelerating the computation of the samples. As DPM-Solver can also accelerate the sampling, I still believe that, in principle, DPM-Solver (and all of the other fast samplers) can further accelerate the log-likelihood evaluations.
+
+==============
+
+In conclusion, I think the contributions of DPM-Solver are more than just applying the exponential integrators. It would be great if the authors could discuss and compare more about the differences. Thank you!"
+21,F8VKQyDgRVj,Neural Compositional Rule Learning for Knowledge Graph Reasoning,_dkKyftBj7,Is there data leakage in the evaluation?,['~Zhaocheng_Zhu1'],"I quite appreciate the novel idea of this paper. However, it looks like there is a data leakage problem in the evaluation.
+
+In the supplementary material `code/kg_completion_fast.py`, line 186 creates `r2mat` by merging facts, train, validation and test triplets. This matrix is used as the grounding for rule inference in `RuleDataset`. To my understanding, if the model learns some identical rules that copy any rule body to predict its rule head, the model will exploit this data leakage and can easily achieve perfect prediction.
+
+Besides, I only found the fact triplets are flipped in the code. The standard KGC evaluation requires to predict both $(h, r, ?)$ and $(?, r, t)$, which is used by all the baselines in this paper. Only evaluating $(h, r, ?)$ usually results in higher performance. Can the author confirm if they have flipped the training / validation / test triplets?"
+22,Cs3r5KLdoj,"Learning MLPs on Graphs: A Unified View of Effectiveness, Robustness, and Efficiency",hjesGjoXi8z,about the position embedding for test nodes in inductive setting,['~Hui_Xu4'],"For inductive setting, the position embeddings of test nodes are generated by aggregation, which leveraged the topology information during inference. However, glnn has not utilized topology information during inference. Whether is it a little unfair for glnn in your experiment?"
+23,kDEL91Dufpa,On the duality between contrastive and non-contrastive self-supervised learning,adCfaS8Xs70,Please comment on relation to https://arxiv.org/abs/2008.01064,['~Jason_D._Lee1'],"I think there should be some discussion of https://arxiv.org/abs/2008.01064 . Our work already established an equivalence between contrastive and non-contrastive and a way to give a unified theoretical analysis, predating this paper by 2 years."
+24,dLAYGdKTi2,Mitigating Gradient Bias in Multi-objective Learning: A Provably Convergent Approach,YFJu-LUtEn2,Severe Problems  with This Paper,['~Yuchen_Luo3'],"The article has severe problems in the following aspects, where the correctness of both analysis and experiments does not meet current scores:
+
+1. The result of the convex case (Theorem 1) is wrong, due to the definition where the  $\lambda^*(x_k)$  is adaptive to the solution while the  $x^*$  is defined globally. I have studied this problem for a long time before. I have considered this metric, but found that it has serious problems. Specifically, if we choose  $x^*$  as the optima for  $\lambda^*(x_k) F(x)$, then it could happen that  $\lambda^* (x_j) (F(x_j)−F(x^*))\leq0,j\neq k$ because  $x^*$  is not the optima for $\lambda^*(x_k) F(x)$. Therefore, this metric can not measure the Pareto suboptimality because it may be zero for non-optimal decisions, thus is wrong to analyze Pareto optimality. For example, if $F(x) = (||x-a||\_2\^2,||x-b||\_2\^2)$ where $a=(1,0),b=(-1,0)$, and consider a sequence $x_{2i-1}=(1,1), x_{2i}=(-1,1),i=1,2,\ldots,\frac{K}{2}$, then we have $F(x_{2i-1}) = (1,5),\nabla F(x_{2i-1}) = ((0,2),(4,2))$ and $F(x_{2i-1}) = (5,1),\nabla F(x_{2i-1}) = ((-4,2),(0,2))$. We can calculate that $\lambda^*(x_{2i-1}) = (1,0)$ and $\lambda^*(x_{2i}) = (0,1)$, and next get $\frac{1}{K}\sum_{k=1}^K\lambda^*(x_k) (F(x_k)−F(x^*)) = \frac{1}{K}\sum_{k=1}^K\lambda^*(x_k) (F(x_k)−F(x^*)) = 1-\frac{1}{2}||x^*-a||\_2\^2-\frac{1}{2}||x^*-b||\_2\^2\leq 0$ (the equation is when $x^*=(0,0)$). Note that here the metric is bounded, but the solutions in the sequence are obviously not Pareto optimal. The correct formulation should be $\frac{1}{K}\sum_{k=1}^K\lambda^*(x_k) (F(x_k)−F(x_k^*))$ where $x_k^* = \arg\min_{x} \lambda^*(x_k) F(x)$, or just to bound $\lambda^*(x_k) (F(x_k)−F(x^*)),\forall x^*$ without the average scheme. Current results can analogize to the intermediate result in Lemma 4.2 (average scheme) in [1], but [1] provides complete convergence result in Theorem 4.1. In addition, the average scheme in single-objective stochastic optimization can always be transferred to the traditional version [2,3], which is why the average scheme is meaningful for proving convergence. However, Theorem 1 in this paper can not reduce to the traditional version, which causes the bound for the summation  $\frac{1}{K}\sum_{k=1}^K\lambda^*(x_k) (F(x_k)−F(x^*))$  meaningless to reveal convergence information for solution  $x_k$.
+
+2. I have also followed the version submitted in NeurIPS 2022. The experimental results are exactly the same, but the algorithm and parameters setting have been changed a lot. Therefore, the experimental results are not trustworthy.
+
+3. I have followed this area for a long time, and found that there is a related work [4] in NeurIPS 2022. The convergence results in [4] are aligned with single-objective sgd, but the rate in this paper is much slower. Could the authors provide a more detailed comparison with [4]?
+
+[1] Fliege et al. Complexity of gradient descent for multiobjective optimization
+
+[2] Cutkosky et al. Momentum-based variance reduction in non-convex sgd. 
+
+[3] Drori et al. The complexity of finding stationary points with stochastic gradient descent. 
+
+[4] https://openreview.net/forum?id=ScwfQ7hdwyP"
+25,wEP-3nECiUE,Pushing the limits of self-supervised learning: Can we outperform supervised learning without labels?,VxK6WktJYAC,Discussion regarding large overlap with our prior work,['~Chaitanya_Ryali1'],"Dear authors, 
+
+Thanks for citing our prior work [1] as having previously used background augmentations (BG Augs). Given the large overlap with our prior work (detailed below), we feel a more detailed discussed in your work is warranted.
+
+Some examples of core contributions of your work that overlap with our prior work:
+
+1) Adapting DeepUSPS to produce an unsupervised saliency model and using it for BG Aug
+2) Showing BG Aug can benefit multiple SSL methods
+3) Characterizing the impact of mask quality and studying mask corruptions
+4) Showing BG Aug can improve multiple downstream tasks, especially in distribution-shift settings and improved label efficiency
+
+Beyond these, our work investigated many variants of BG Augs across SSL methods (MoCov2, BYOL, SwAV, DINO), training durations, architectures (CNNs, ViTs), saliency methods and in numerous downstream and distribution shift-settings. We also studied when and how BG Augs can provide benefits. Of particular note, 
+
+1) we were able to achieve performance *on-par* with the standard supervised baseline on ImageNet, when BG Aug is used together with SwAV,
+2) though self-supervised ViTs (e.g. DINO) are known to be particularly good at separating foreground and background, we’ve shown [2] *even ViTs*  benefit from a similarly large boost in performance by using BG Augs
+
+Thanks, 
+
+Chay, David, Ari
+
+
+1. Characterizing and Improving the Robustness of Self-Supervised Learning through Background Augmentations, Ryali, Schwab, Morcos, arxiv, 2021
+2. Learning Background Invariance Improves Generalization and Robustness in Self Supervised Learning on ImageNet and Beyond,  Ryali, Schwab, Morcos, ImageNet PPF Workshop, NeurIPS 2021,  https://slideslive.com/38974549"
+26,T5nUQDrM4u,Sparse Upcycling: Training Mixture-of-Experts from Dense Checkpoints,d-4q7HbCrO,Exsiting work using dense checkpoint to train MoE,['~Lemeng_Wu1'],"Dear Authors and Reviewers
+
+Thank you for presenting and reviewing this interesting work. I would like to bring your attention to the highly relevant work Residual Mixture of Experts [1], which has not been discussed or cited.
+
+Residual Mixture of Experts proposes a training pipeline using the dense model checkpoint pretrained on ImageNet22k to expand the MoE model and further finetune the downstream tasks like segmentation or detection for better performance and similar training time compared with dense model. We copy the MLP module into k copies as the MoE initialization and propose our receipt for a better tuning for this expanded model on the downstream task. 
+
+It is interesting that this work extends this setup into extremely large-scale benchmarks and gets new findings in different aspects, however, since [1] is shown on arxiv for nearly half-year before the ICLR deadline, I do not think it is a co-current work that does not need to cite and discuss at all in this paper. 
+
+[1] Residual Mixture of Experts
+
+Lemeng Wu, Mengchen Liu, Yinpeng Chen, Dongdong Chen, Xiyang Dai, Lu Yuan
+
+https://arxiv.org/abs/2204.09636"
+27,JLg5aHHv7j,(Certified!!) Adversarial Robustness for Free!,8fAlUCteQd,More baselines can be included,['~Linyi_Li1'],"Dear authors,
+
+It is a great work that shows large diffusion models can work as denoisers to bring certified robustness! Thanks for all the efforts. Maybe this paper can be benefited from comparing with one published baseline:
+
+[1] (our DRT framework for certified training) Yang, Zhuolin, et al. ""On the certified robustness for ensemble models and beyond."" ICLR 2022.
+
+Furthermore, the robustness guarantees may be converted and thus compared with strong baselines against $\ell_\infty$-bounded attacks [2,3]:
+
+[2] Zhang, Bohang, et al. ""Boosting the certified robustness of l-infinity distance nets."" ICLR 2022.
+
+[3] Shi, Zhouxing, et al. ""Fast certified robust training with short warmup."" NeurIPS 2021.
+"
+28,JLg5aHHv7j,(Certified!!) Adversarial Robustness for Free!,ANEMacIh1b5,terminologies,['~Yijiang_Pang1'],"Dear authors,
+It is a very good work. Since the score-based input purification models can practically induce adv-robustness also mentioned by the paper, the boundaries become blurred. But, it may help us understood the work better if the differences of some terminologies can be emphasized. Such as,
+probabilistic certified robustness VS (general) certified robustness,
+adversarial robustness under random noise VS (worst-case) adversarial robustness under adv-attack. 
+
+"
+29,oze0clVGPeX,Exploring the Limits of Differentially Private Deep Learning with Group-wise Clipping,_2bV6o767g,Deep concerns about the experiments,['~Zhiqi_Bu1'],"Hi, I like the idea of group-wise clipping but I am concerned that the experiments are unfair and misleading. Please correct me if I miss anything. I put together a list of questions here, specifically for the per-layer clipping:
+
+1. Per-layer clipping, even with adaptive thresholds, does not match the standard flat clipping. This renders your claim in the abstract ""(Adaptive per-layer clipping) attaining similar or better task performance within *less wall time*"" invalid. This is particularly obvious in Section 5.2 GLUE tasks. In Table 3, adaptive per-layer clipping uses **20 epochs** to get 92.40% accuracy but Li et al. (2022b) gets 92.09% using **3 epochs**. This comparison is confusing: you should either run adaptive per-layer clipping with 3 epochs to compare accuracy under the similar wall time, or run Li et al.'s method with 20 epochs for fair comparison.
+
+2. Li et al. (2022b) results are **significantly under-reported in Table 3** for both Roberta-base and Roberta-large. I cite the original results from Table 1 (https://arxiv.org/pdf/2110.05679.pdf) here, for epsilon=3:
+|                  | MNLI         | QQP    | QNLI   | SST2  |   |
+|---------|----------|--------|--------|-------|---|
+| full             | 82.47/82.10  | 85.41  | 84.62  | 86.12 |   |
+| full + infilling | 82.45/82.99  | 85.56  | 87.42  | 91.86 |   |
+
+The authors only cite the first row whereas the second row is SOTA. To clarify, the authors should highlight that infilling is not used in the main text and experiment adaptive per-layer clipping with infilling, instead of simply comparing to a weaker baseline.
+
+3. The results in **Table 3 and Table 4 are contradicting each other**: for SST2 and Roberta-base, the adaptive per-layer with 20 epochs gets 92.03/92.40% in Table 3 but 91.57/91.96 in Table 4.
+
+4. The methods compared in Table 3 are not of the same category.  In Table 3, Yu et al. (2021b), Li et al. (2022b), and adaptive per-layer train 100% model parameters, whereas Yu et al. (2022) is the only method that trains a subset of parameters using DP LoRA. I am not sure the comparison is meaning full. What about running per-layer clipping for DP LoRA? This should at least be clarified so readers can understand the difference.
+
+5. For per-device clipping, the authors are using DP LoRA to train only a small fraction of 175B GPT3. Can the authors state how many trainable parameters are optimized? My estimate is that only millions of parameter are trained so the contribution may be less significant than it seems."
+30,TqCHPi7xlV,Language Modeling Using Tensor Trains,OO6aBsPztg,Missing references ,['~Guillaume_Rabusseau1'],"The authors seem to have missed important references where the fact that TTLM generalize linear second order RNN has been discussed and proved: [1] and [2] (see Figure 2 and Eq 2 in [1] and Section 3 in [2] where the equivalence between WFA ---which are equivalent to second order RNN with linear activation functions--- and TT is extensively discussed).
+
+[1] Rabusseau, Guillaume, Tianyu Li, and Doina Precup. ""Connecting weighted automata and recurrent neural networks through spectral learning."" The 22nd International Conference on Artificial Intelligence and Statistics. PMLR, 2019.
+
+[2] Li, Tianyu, Doina Precup, and Guillaume Rabusseau. ""Connecting weighted automata, tensor networks and recurrent neural networks through spectral learning."" Machine Learning (2022): 1-35."
+31,AHvFDPi-FA,Diffusion Policies as an Expressive Policy Class for Offline Reinforcement Learning,6WgtZxntTcY,Question about the combination with the RL policy,['~Yinuo_Zhao1'],"Although the combination of generative method with RL policy is not a new idea [1,2], this paper added the SOTA generative model with the offline DRL as a novel policy regularizer and achieved better result in D4RL benchmark. I wonder if there are more possibilities to combine diffusion models with online DRL, like that in ""Parrot"" [1]. Specifically, is it possible to compute the logP(a|s) with diffusion models? If true, we can use the log_probs to compute some surrogate objectives in DRL policy updating.
+
+
+[1] Avi Singh*, Huihan Liu*, Gaoyue Zhou, Albert Yu, Nicholas Rhinehart, Sergey Levine. Parrot: Data-Driven Behavioral Priors for Reinforcement Learning International Conference on Learning Representations (ICLR), 2021.
+
+[2] Yunzhu Li, Jiaming Song, and Stefano Ermon. Infogail: Interpretable imitation learning from visual demonstrations. In Advances in Neural Information Processing Systems, 2017."
+32,JLR_B7n_Wqr,Latent Graph Inference using Product Manifolds,yZ4N4xiX10,Misattribution of datasets,['~Benedek_Andras_Rozemberczki1'],"The paper misattributed the authorship of the Chameleons and Squirrels datasets. These datasets were proposed in this ICLR submission:
+
+https://openreview.net/forum?id=HJxiMAVtPH
+
+The Pei et al. paper cited by the authors took the Squirrel and Chameleons datasets and used those for benchmarking, but had nothing to do with the creation of the datasets. The correct citation for the paper which proposed the datasets is:
+
+```bibtex
+>@article{musae,
+          author = {Rozemberczki, Benedek and Allen, Carl and Sarkar, Rik},
+          title = {{Multi-Scale Attributed Node Embedding}},
+          journal = {Journal of Complex Networks},
+          volume = {9},
+          number = {2},
+          year = {2021},
+}
+```"
+33,kDSmxOspsXQ,Boosting the Cycle Counting Power of Graph Neural Networks with I$^2$-GNNs,O4KPIvNklN,Questions about the claimed linear complexity,['~Yuxin_Dong2'],"Dear authors,
+
+Thanks for your efforts in presenting this interesting work. However, I have the following questions that confuse me a lot and that I found the reviewers have not yet asked. So I think I should post them here as it may be helpful to the community:
+- The authors claimed that ""to the best of our knowledge, it is the first linear-time GNN model that can count 6-cycles with theoretical guarantees"". However, such a statement is definitely wrong. The proposed subgraph GNN has to enumerate all pair of adjacent nodes and perform message-passing for each pair (see Equation 6), which results in **a complexity equal to $m$ MPNNs** where $m$ is the number of edges in a graph. Therefore, the computational cost should be $O(m(n+m))$, namely $O(m^2)$ for a graph with $n$ nodes and $m$ edges. In other words, the computational complexity scales in proportional to the **square** of the number of edges or the **quartic** of the number of nodes. This cost can even be larger than 3-WL. Even in the bounded degree setting, the complexity is $O(n^2)$ which is *still not linear*. Moreover, the memory cost scales like $O(mn)$. Given this, I am quite confused by the following sentence in the introduction: ""I$^2$-GNNs have linear space and time complexity w.r.t. the number of nodes, making it very scalable in real-world applications."" I think the contribution of this paper is largely **overclaimed** and even **incorrect**.
+
+- The authors said that prior subgraph-based GNNs can only count cycles with length no more than 4 while I$^2$-GNNs can count cycles with length no more than 6. However, such a statement is **misleading** and may not be true. In particular, their counterexamples (Appendix D.3) for showing that subgraph GNNs cannot count 5-cycles only hold for very restrictive models, such as Cotta et al., 2021. In contrast, most subgraph GNNs can indeed distinguish the two graphs in Appendix D.3, including the following works:
+  - Nested GNNs (Zhang et al., 2021). NGNN can distinguish the two graphs as long as the number of outer GNN layers is more than one.
+  - ESAN (Bevilacqua et al., 2022). ESAN can distinguish the two graphs using DSS-WL.
+  - SUN (Frasca et al., 2022). SUN can distinguish the two graphs since it is more powerful than ESAN.
+  - Ordered Subgraph GNN (Qian et al., 2022). 
+
+  Given this, it is not clear whether subgraph-based GNNs cannot count 5-cycles or 6-cycles. Note that I$^2$-GNNs requires $O(mn)$ memory and $O(m^2)$ computational cost, which are strictly more costly than all prior subgraph GNNs. If prior works already suffice to count 5-cycles and 6-cycles, there may be of little significance to propose a new architecture with more costs."
+34,xPkJYRsQGM,Contrastive Learning for Unsupervised Domain Adaptation of Time Series,xmHxITsLHeC,Public comment on the model selection and the paper novelty,['~Vilma_Bertram1'],"**How the authors did hyper-parameter search without target labels**?
+
+Unsupervised Domain Adaptation fundamentally assumes access to labeled source data and fully unlabelled target data. Therefore, how to select the best hyper-parameters with no labels available is still a long standing problem. Nevertheless, the authors of the CLUDA work have not clearly explained how they selected the hyper-parameters and only mentioned that I will quote from the paper appendix *'' We applied early stopping based on the method performance on validation set without the labels from the target domain.''* To the best of my knowledge, early stopping can only be applied with using the target labels, it is really worth clarifying how could the authors use early stopping on the target data without any labels? As model selection can be critical to the performance.
+
+**As most of the UDA method applied to the feature space, methods that applied for visual application should also works well for time series data, why there can be a difference**?
+The authors claimed in many venues that there are existing methods that proposed for images but cannot be extended for time series data. Nevertheless, their experiments already dispute this claim, as most of the baseline are already methods proposed for images and has been adapted to time series data.
+
+** How different is your contextual adaptation from the neighbourhood clustering paper?**
+The contextual adaptation is a key contribution of the paper as other components including adversarial and MoCO base contrasting already existing. However, the contextual adaptation approach seems to be very similar to ref[1]. Moreover, ref[1] has also been applied for time series data, which significantly question the novelty of the proposed work by using already existing technique. 
+
+[1] Yèche, Hugo, et al. ""Neighborhood contrastive learning applied to online patient monitoring."" International Conference on Machine Learning. PMLR, 2021."
+35,fwn2Mqpy4pS,$\omega$GNNs: Deep Graph Neural Networks Enhanced by Multiple Propagation Operators,XYEK9F2D4cM,Relevant Works,['~Sitao_Luan1'],"Thank the authors for proposing $\omega$GNNs and the idea of learning to mix smoothing and sharpening propagation operators is quite interesting and meaningful. I would like to highlight two relevant works: [1] proposes filterbank GNNs, which use low-pass and high-pass filters to extract the smooth and non-smooth components in graph signals and combine them adaptively; [2] proposes Adaptive Channel Mixing(ACM) framework, which includes low-pass, high-pass and identity channels and uses a node-wise channel mixing mechanism to combine the channel information adaptively. Good luck to your rebuttal.
+
+[1] Luan S, Zhao M, Hua C, et al. Complete the missing half: Augmenting aggregation filtering with diversification for graph convolutional networks[J]. GLfrontier workshop (oral), NeurIPS 2022. arXiv:2008.08844, 2020.
+
+[2] Luan S, Hua C, Lu Q, et al. Revisiting Heterophily For Graph Neural Networks[J]. NeurIPS 2022. arXiv:2210.07606, 2022.
+"
+36,WH1yCa0TbB,Learning Diffusion Bridges on Constrained Domains,fZhjWkZ5d4,Existing work using h-transform with diffusion models to construct diffusion bridges,['~James_Thornton1'],"Thank you for this interesting work. I would like to bring your attention to highly relevant work **Simulating Diffusion Bridges with Score Matching** [1], which has not been discussed. 
+
+[1] proposes what appears to be the **same methodology -- using h-transform with diffusion models to create a diffusion bridge** which is at the core of this work, and which this work builds on. I would argue [1] is not concurrent given it was publicly available, with code, about one year ago (November 2021).
+
+[1] **Simulating Diffusion Bridges with Score Matching** (November 2021)
+Jeremy Heng, Valentin De Bortoli, Arnaud Doucet, James Thornton, https://arxiv.org/abs/2111.07243
+"
+37,azCKuYyS74,What Do Self-Supervised Vision Transformers Learn?,OzpzrO6aTuw,Problem with implementing Figure.8,['~Yuan_Liu5'],"As suggested in Line#190, we take the [toolbox](https://colab.research.google.com/github/xxxnell/how-do-vits-work/blob/transformer/fourier_analysis.ipynb) to draw the log amplitude of MoCo-v3 for different depths, but we observe a quite different [trend](https://user-images.githubusercontent.com/30762564/201083840-493fcf3f-4bf2-4ff9-9c2c-314fb8b59a87.jpg). Could you please give me some advice about how to re-implementing Figure.8. Thanks in advance!
+
+PS: the ckpt of MoCo-v3 is from [link](https://dl.fbaipublicfiles.com/moco-v3/vit-b-300ep/vit-b-300ep.pth.tar)."
+38,azCKuYyS74,What Do Self-Supervised Vision Transformers Learn?,wSUuVJ1m1v,How to calculate normalized mutual information?,['~Haoqing_Wang1'],"Wonderful job! I want to know how to calculate normalized mutual information. I calculate it following the paper, but I find the NMI of MoCo is not as small as shown in the paper. In fact, MoCo has the same NMI with SimMIM at lower layers but very small NMI at the top layers. So  what is the complete equation for calculate normalized mutual information? Thanks very much!"
+39,Peot1SFDX0,Preference Transformer: Modeling Human Preferences using Transformers for RL,kx3Vsedro2,Comment on the extension to Non Markovian Rewards ,['~Mudit_Verma2'],"The paper extends the modeling of human binary preferences with Non Markovian rewards, and then use Transformers to capture the weights while computing rewards for a history. Similar work has been done in the past : https://arxiv.org/abs/2210.09151 where such weights are used as a soft prior to best approximate the possible markovian reward. "
+40,tVkrbkz42vc,PAC-NeRF: Physics Augmented Continuum Neural Radiance Fields for Geometry-Agnostic System Identification,yg19VeyRBe,Is it possible to compare the model with another NeRF-based fluid renderer?,['~Yunbo_Wang1'],"Hi authors,
+
+Interesting paper and solid experiments! 
+
+I am working on intuitive physics also, and I note that the general idea of solving the inverse problem by integrating a differentiable dynamics model with an implicit neural renderer is somewhat related to the following work. If possible, could you please compare them for particle estimation, novel view synthesis, and rendering quality at future time steps?
+
+[Guan et al., 2022] NeuroFluid: Fluid dynamics grounding with particle-driven neural radiance fields. ICML 2022.
+
+Thanks!"
+41,eExA3Mk0Dxp,Robust Multi-Agent Reinforcement Learning against Adversaries on Observation,bbq3zHW4r3q,Drawbacks and Shortcomings of Adversarial Training,['~Ezgi_Korkmaz2'],"The below papers discuss the drawbacks and the shortcomings of adversarial training in deep reinforcement learning. Thus, it would be highly relevant to mention these studies below when referring to the adversarial deep reinforcement learning field; in particular, to adversarial training in deep reinforcement learning. 
+
+[1] Deep Reinforcement Learning Policies Learn Shared Adversarial Features Across MDPs. AAAI Conference on Artificial Intelligence, 2022.
+
+[2]  Investigating Vulnerabilities of Deep Neural Policies. Conference on Uncertainty in Artificial Intelligence (UAI), 2021."
+42,SJ0Lde3tRL,Extreme Q-Learning: MaxEnt RL without Entropy,T4MHC0ZuPix,Missing citations?,['~Sobhan_Mohammadpour1'],"https://www.atlantis-press.com/journals/jsta/125935600/view (near equation 5) showed that the LINEX function (eq. 8 in this paper) corresponds to a Gumbel regression, i think they should cite that paper and also call the function LINEX as it's fairly well known in the statistical community. Otherwise it was a very interesting read."
+43,flap0Bo6TK_,Graph Neural Network-Inspired Kernels for Gaussian Processes in Semi-Supervised Learning,ngCpDl6Povv,Misattribution of datasets,['~Benedek_Andras_Rozemberczki1'],"The paper misattributed the authorship of the Chameleons and Squirrels datasets. These datasets were proposed in this ICLR submission:
+
+https://openreview.net/forum?id=HJxiMAVtPH
+
+The Pei et al. paper cited by the authors took the Squirrel and Chameleons datasets and used those for benchmarking, but had nothing to do with the creation of the datasets. The correct citation for the paper which proposed the datasets is:
+
+```bibtex
+>@article{musae,
+          author = {Rozemberczki, Benedek and Allen, Carl and Sarkar, Rik},
+          title = {{Multi-Scale Attributed Node Embedding}},
+          journal = {Journal of Complex Networks},
+          volume = {9},
+          number = {2},
+          year = {2021},
+}
+```"
+44,EKpMeEV0hOo,SimPer: Simple Self-Supervised Learning of Periodic Targets,FkmdEjA5pDt,Comparison with related works of periodic self-supervised learning?,['~Sudhakar_Kumawat3'],"It seems that contrastive learning [A,B,C] has already been widely used in periodic self-supervised learning.
+
+[A] The Way to my Heart is through Contrastive Learning: Remote Photoplethysmography from Unlabelled Video, ICCV 2021
+
+[B] Self-supervised Representation Learning Framework for Remote Physiological Measurement using Spatiotemporal Augmentation Loss, AAAI 2022
+
+[C] Contrast-Phys: Unsupervised Video-based Remote Physiological Measurement via Spatiotemporal Contrast, ECCV 2022
+
+It should mention in the related work and highlight the difference and novelty explicitly. 
+
+It seems the results in Table 4 and Table 5 are worse than [A][C]."
+45,oyzMyylgINj,LT-SNN: Self-Adaptive Spiking Neural Network for Event-based Classification and Object Detection,wC_6FFRiAvN,"Interesting work to follow! But, it seems to have some serious issues in the paper as well.",['~John_Willian1'],"With the proposed adaptive learning method, this work advanced the performance of SNNs on the event dataset CIFAR10-DVS with smaller neural network backbones, which is impressive!
+
+However, I have been reading recent works relevant to SNNs, including all the latest submissions for ICLR 2023, and I noticed that, in this paper,
+
+(Unfair 1)
+
+the prior works listed in Row CIFAR10, Table 4 are incomplete. For example, TET, listed in Row DVS-CIFAR-10, Table 4 and **adopted** as a trick in the proposed LT-SNN, also conducts experiments on CIFAR-10 with ResNet-19 and Simulation Length 6 but is **not** listed in Row CIFAR10. And, their TET ResNet-19 with Simulation Length 6 can achieve 94.50 $\pm$ 0.07, which is **better** than LT- ResNet-19. **Since the proposed LT-SNN also adopts TET, the proposed method seems to impair the performance and is incompatible with TET on CIFAR10.**
+
+(Unfair 2)
+
+And, Dspike [1], proposed at Neurips 2021 and also with respect to **surrogate gradients**, is dedicated to improving the direct training of SNNs which I think is **very related** to this work. And Dspike also conducts experiments on both CIFAR10 and CIFAR10DVS, but is **neither** listed as a comparison **nor** cited by this paper.  **There should be a fair comparison between Dspike and LT-SNN (without TET)**
+
+
+(Unfair 3)
+
+As mentioned above, TET is adopted in the proposed method and the TET baseline but is not adopted in other baseline methods. **It is unfair that the authors use an advanced trick TET to beat other works that don't.** 
+
+
+(Unfair 4)
+
+I also noticed the model architecture used in Table 4 is different from prior works.  It makes sense that the authors want to show the proposed method can help smaller models do better on CIFAR10DVS as claimed in Figure 1. However, to my best knowledge and experience, **1)** **CIFAR10DVS is a small dataset**, and the obstacle is over-fitting. So, that smaller models can do better than bigger models is not surprising, and thus does not back up the proposed method effectively.  **2)** I think it is very necessary to use **the same model architecture and hyper-parameters** in the main experiments (Table 4).  Just keep any other hyper-parameters consistent with the prior works.  It should be common sense to make fair comparisons when proving the proposed method is better than others. The authors have done so many experiments in Table 4. Why did they lose this vital one?
+
+
+(Fairness Conclusion)
+
+Is it because they are irrelevant to this work in the authors' opinion, due to an incomplete survey, or because the proposed method **failed to surpass them on CIFAR10**? Anyway, I think this work could be more convincing if sufficient and thorough comparisons are listed. Or, at least plugging the proposed method into those aforementioned works to demonstrate the effectiveness and superiority of the proposed method.  For now, I don't think the main experiments are convincing enough, and some doubts arise.
+
+(Doubt 1)
+
+Furthermore, DSR is proposed to enable direct-trained SNNs to have more simulation steps and meanwhile less training overhead (which is equal to only one simulation step in the backward pass).  Could the proposed method achieve comparable training efficiency? If not, I think treating DSR as the main baseline could be somewhat unfair. 
+
+(Doubt 2)
+
+Figure 2(a) seems **not** to match what I have observed in my experiments which show **STSG performs well on the learnable potential threshold**. I tried to reproduce Figure 2(a), but never find the **Failed Training**. It seems like **Observation 1** is **not generous** in most scenarios.  The authors' falsification of **Hypothesis 1** is not persuasive since Figure 2(a) can hardly be observed. Thus, the motivation of the paper is not as concrete and solid as it claims.  Will they **open-source** their code to reproduce Figure 2(a) or the training logs? and when? I think this is very important.  Because it will be less meaningful if the whole work is based on minor special cases rather than generous circumstances.
+
+I am a Ph.D. student in the SNN research field. My concerns are of course less important since I am not an official reviewer. But I really hope the authors could address my problems, which I think are very crucial! 
+
+And, forgive me for my harsh words, I am not intended to be aggressive. Noticing that two reviewers gave a rating of 8, which is impressive and attractive, made me decide to pay more attention to this paper to learn something valuable. It naturally raises some issues after my reading.  
+
+Again, this work is still, to my concept, innovative and progressive to some points. But, the experiments and the observations are very rough and unconvincing.
+
+Thanks for the authors' time. I am very much looking forward to the reply. 
+
+[1] Li Y, Guo Y, Zhang S, et al. Differentiable spike: Rethinking gradient-descent for training spiking neural networks[J]. Advances in Neural Information Processing Systems, 2021, 34: 23426-23439."
+46,dQNL7Zsta3,Malign Overfitting: Interpolation and Invariance are Fundamentally at Odds,WIP-Kgf3S5f,Dicussion with Related Work,['~LIN_Yong1'],"This is an interesting paper on discussing the overparameterization and invariance. We'd like to have a discussion with on related works [1] and [2] on this topic. 
+
+**On the results**:
+*  To the best of our knowledge, the confict between overparamterization and invariance learning is first formally identified in [1]. [1] shows that any overparameterized model that can interpolate the data can fail the invariance constraint. 
+* [2] analyzes a linear regression case. [2] shows that a model that can interpolate data always achieves a smaller IRM loss than the model merely using invariant features (IRM loss with zero penalty is standard ERM loss).  
+
+------------update--------------
+
+Thanks for Reviewer 7Zqk and author's discussion and correction. 
+
+It seems that we have some misunderstanding on the work before. This paper presents the results that:  the max margin interpolator will rely on the spurious features with large probability. Whereas,  [1, 2] is about the existence of a interpolator that fails the IRM constraint which still uses the spurious feature.  So they typically focus on different aspects. The results in this paper bring new insights.   
+
+
+
+[1] Yong Lin, Hanze Dong, Hao Wang, Tong Zhang; Bayesian Invariant Risk Minimization; CVPR 2022
+
+[2] Xiao Zhou, Yong Lin, Weizhong Zhang, Tong Zhang; Sparse Invariant Risk Minimization. ICML 2022"
+47,Qc_OopMEBnC,Learning to Segment from Noisy Annotations: A Spatial Correction Approach,ATtGaXtureI,Discussion on a related work,['~Sheng_Liu2'],"Dear authors, 
+
+The paper is very interesting and deals with a very important problem in segmentation. I also noticed that this paper is similar, to some extent, to our previous paper ""Adaptive Early-Learning Correction for Segmentation from Noisy Annotations"" published at CVPR 2022. Could you discuss the difference? I briefly read the paper and believed that there are many novelties besides the annotation correction itself. Thank you in advance. 
+
+Best,
+
+Sheng"
+48,ZrEbzL9eQ3W,Scaling Laws for a Multi-Agent Reinforcement Learning Model,A_3qrYrNmUT,Methodology for the agents being evaluated?,['~David_J_Wu1'],"As a researcher and engineer with experience in computer game playing AI, I would like to say that I find the topic of this submission to be of interest, so I thank the authors for attempting to explore it!
+
+I'm commenting because I'd like to draw additional emphasis to a question from reviewer kPYj: when evaluated for playing strength, were the final agents using a fixed number of MCTS simulation counts per move, or a fixed amount of time per move, or something else? While there are good reasons why a given experiment might use the former (e.g. simulation count limits are hardware-independent, while wall-clock time limits are not), in domains where search is possible to freely scale any model to any inference-time compute budget, optimizing performance per final inference time or cost is usually the practical objective. I and many in my field have all too commonly trained a larger model, found it was much stronger on a fixed-simulation basis, yet gave a worse final agent since the larger cost prevented deeper search in the same time. AlphaZero's model size would likely have been chosen with the same consideration.
+
+Given how hugely the interpretation of some results may hinge on this detail, I found it surprising that only one reviewer also raised this question. I hope it can be easy to clarify, as it would help with interpreting the data presented. Thanks!"
+49,8CDeu0f4i2,REDUCING OVERSMOOTHING IN GRAPH NEURAL NETWORKS BY CHANGING THE ACTIVATION FUNCTION,nGSyowPUp_,Relevant Work,['~Sitao_Luan1'],"Thank the authors for having this interesting paper which discuss the role of activation functions in over-smoothing problem. I would like to highlight one relevant work [1] that theoretically and empirically studies the effect of activation functions for over-smoothing problem from loss of rank perspective and propose to replace ReLU with Tanh in deep GNNs. Good luck to your rebuttal.
+
+[1] Luan S, Zhao M, Chang X W, et al. Break the ceiling: Stronger multi-scale deep graph convolutional networks[J]. Advances in neural information processing systems, 2019, 32."
+50,CYK7RfcOzQ4,AudioGen: Textually Guided Audio Generation,MjXysYKrT5,Questions about muti stream & demos,['~Zeqian_Ju1'],"The results are quite impressive. I think the generated samples even have better quality than Ground Truth.  I would like to check the following questions：
+1. As shown in Table 2, the single stream setting can achieve the best performance in all metrics except for speed.  And I guess that the samples on demo page are generated under single stream setting if not annotated.  Is it right?
+
+2. Are Ground Truth on demo page reconstructed from tokens, or raw waves from datasets?
+
+3. In ``Multi-stream modelling`` section on demo page, I notice that the generated samples sound much more 'intense' and 'speedy', as the stream number grows. Is it a common phenomenon, and why?
+
+Thanks a lot for your response!"
+51,2WklawyeI08,Hebbian and Gradient-based Plasticity Enables Robust Memory and Rapid Learning in RNNs,8Z3KAONSrF,Missing reference to closely related work,['~Timoleon_Moraitis1'],"Dear authors,
+
+We would like to draw your attention to the latest work that also uses meta-learned Hebbian plasticity in recurrent neural networks [1] but is not cited in your manuscript.
+
+[1] extends Hebbian plasticity with short-term dynamics, applies it to similar problems as the study reviewed here, outperforms several baselines including plasticity of the Miconi type that the authors used, and also extends its applicability to reinforcement learning problems that the authors here characterize as challenging and left for future study.
+
+We believe that this reference is highly relevant and should be cited in the present manuscript for an accurate depiction of the current state of the field.
+
+Sincerely,
+
+Timos Moraitis
+
+[1] Rodriguez et al., *Short-Term Plasticity Neurons Learning to Learn and Forget*, ICML 2022 https://proceedings.mlr.press/v162/rodriguez22b.html
+"
+52,zoz7Ze4STUL,Energy-based Out-of-Distribution Detection for Graph Neural Networks,jVearQ3UyP,Misattribution of Twitch Gamers,['~Benedek_Andras_Rozemberczki1'],"The Twitch-Gamers dataset was proposed in this paper:
+
+```bibtex
+
+>@misc{rozemberczki2021twitch,
+       title = {Twitch Gamers: a Dataset for Evaluating Proximity Preserving and Structural Role-based Node Embeddings}, 
+       author = {Benedek Rozemberczki and Rik Sarkar},
+       year = {2021},
+       eprint = {2101.03091},
+       archivePrefix = {arXiv},
+       primaryClass = {cs.SI}
+       }
+
+```
+"
+53,bXNl-myZkJl,More ConvNets in the 2020s: Scaling up Kernels Beyond 51x51 using Sparsity,t-kIYvE9Ux,About number of FLOPs and parameters,['~Timothée_Masquelier1'],"Hello,
+
+I'm not a reviewer for this paper, but I read it in detail as soon as it came out on arXiv, and I've found the approach extremely appealing :-)
+
+However, I have two important concerns:
+
+1) I suspect the FLOPs reported here do not include the ones of the gemm method. When including them, the total number of FLOPs could be much higher than the ConvNeXt baselines to which they compare themselves.
+
+2) The reported numbers of parameters only include the non-zero ones (https://github.com/VITA-Group/SLaK/issues/12). I think the total number of parameters should also be reported. It is the total number of parameters that matters for 99% of the users, who will run the code on GPUs which do not leverage sparsity.
+
+Best,"
+54,eL1iX7DMnPI,Privacy-Preserving Vision Transformer on Permutation-Encrypted Images,eIKKTOmdTa,This scheme is broken.,['~Nicholas_Carlini1'],"I have broken this scheme. arXiv has been rejecting my break for the past two weeks---with luck they'll change their mind at some point---but I've implemented a jigsaw puzzle solver that can correctly reconstruct images with high probability.
+
+My attack works with three simple steps:
+1. I train a neural network to predict if two patches could be adjacent or not
+2. I compute the probability any two of the n^2 patches could be placed next to each other
+3. I walk the graph to find the best alignment
+
+This allows me to achieve perfect reconstruction for 23% of the ImageNet images I used during testing of my attack, and near-perfect reconstruction of a further 46%.
+
+I do not understand why we should have ever believed that it would be possible to achieve privacy with jigsaw puzzles---a task that is regularly treated as ""play"" for eight-year-old children."
+55,UaAD-Nu86WX,DiGress: Discrete Denoising diffusion for graph generation,qe9Yyqbxfo,Wondering what type of GPU you are using for this work.,['~Liang_Yan2'],"Wondering what type of GPU you are using for this work,thanks!"
+56,7JsGYvjE88d,Fast and Precise: Adjusting Planning Horizon with Adaptive Subgoal Search,u3YsFp7VkuN,A note on DeepCubeA & an additional reference,['~Kyo_Takano1'],"Dear authors and reviewers,
+
+
+I would like to make a few comments about references, although they may not be very helpful since the authors do not seem to compare their results with existing ones.
+
+1. DeepCubeA (Agostinelli et al., 2019) [1] is a method that has been validated on Sokoban as well as the Rubik's Cube. The authors has not included this information, like Czechowski, et al. (2021) [2] did not.
+2. On solving the Rubik's Cube, we proposed a deep learning method with state-of-the-art results (Takano, 2021) [3], which also combined neural networks and BestFS (more specifically, beam search).
+
+Please consider including/citing these. If possible, with experimental comparisons of solution optimality and efficiency.
+
+---
+References
+
+[1] Forest Agostinelli, Stephen McAleer, Alexander Shmakov, and Pierre Baldi. Solving the Rubik’s cube with deep reinforcement learning and search. Nature Machine Intelligence, 1(8):356–363, 2019.\
+[2] Konrad Czechowski, Tomasz Odrzygózdz, Marek Zbysinski, Michał Zawalski, Krzysztof Olejnik, Yuhuai Wu, Łukasz Kucinski, and Piotr Miłos. Subgoal search for complex reasoning tasks. Advances in Neural Information Processing Systems, 34:624–638, 2021.\
+[3] Kyo Takano. Self-Supervision is All You Need for Solving Rubik's Cube. arXiv:2106.03157, 2021."
+57,yTbNYYcopd,Accurate Neural Training with 4-bit Matrix Multiplications at Standard Formats,T_jdS_AKb_d,Hope to update the code to reproduce the result,['~Haocheng_Xi1'],"Hello, I am very interested in your work, which has very good performance. However, I notice that your code is missing some files, so I can not reproduce your result using LUQ in the backward pass and SAWB in the forward pass.(For example, in vision/models/modules/se.py it import .activation, but it does not include such a file) Can you upload the code that can reproduce your result on the Imagenet? I am very grateful for this. (I believe that the method works since I implement it by myself and get relatively good result, but it is better to look at the original code :)"
+58,XE0cIoi-sZ1,Can Single-Pass Contrastive Learning Work for Both Homophilic and Heterophilic Graph?,NnfkxplhX7,Misattribution of multiple datasets,['~Benedek_Andras_Rozemberczki1'],"The paper misattributed the authorship of the Chameleons and Squirrels datasets. These datasets were proposed in this ICLR submission:
+
+https://openreview.net/forum?id=HJxiMAVtPH
+
+The Pei et al. paper cited by the authors took the Squirrel and Chameleons datasets and used those for benchmarking, but had nothing to do with the creation of the datasets. The correct citation for the paper which proposed the datasets is:
+
+```bibtex
+>@article{musae,
+          author = {Rozemberczki, Benedek and Allen, Carl and Sarkar, Rik},
+          title = {{Multi-Scale Attributed Node Embedding}},
+          journal = {Journal of Complex Networks},
+          volume = {9},
+          number = {2},
+          year = {2021},
+}
+```
+
+The Twitch-Gamers dataset was proposed in this paper:
+
+```bibtex
+
+>@misc{rozemberczki2021twitch,
+       title = {Twitch Gamers: a Dataset for Evaluating Proximity Preserving and Structural Role-based Node Embeddings}, 
+       author = {Benedek Rozemberczki and Rik Sarkar},
+       year = {2021},
+       eprint = {2101.03091},
+       archivePrefix = {arXiv},
+       primaryClass = {cs.SI}
+       }
+
+```"
+59,2nLeOOfAjK,Versatile Neural Processes for Learning Implicit Neural Representations,kIu_2s6ZFa,Equations of generative processes and the Correctness of derived ELBO?,['~Richard_S_Liu1'],"Hi Authors,
+
+Thanks for the work. I take great interest in the hierarchical modeling of neural processes. So I have a couple of questions about this work.
+
+1. In the vanilla neural process, it gives the generative process as $p(y_{1:n}|x_{1:n})=\int p(z)\prod_{i=1}^{n}p(y_i|x_i,z)dz$. ***Can you specify the generative process of your proposed hierarchical model in equations?*** Meanwhile, ***does your hierarchical neural process meet the Kolmogorov extension theorem to verify the definition of exchangeable stochastic processes?***
+2. Since the sequential latent variables $z_{1:L}$ are correlated and factorized in hierarchical variational autoencoders [1], so the derived evidence lower bound has the KL divergence term in the form $\sum_{l=2}^{L} E_{q(z_{l}|z_{<l},x)}[KL(q(z_{l}|x,z_{<l})||p(z_{l}|z_{<l}))]+KL(q(z_{1}|x)|| p(z_1))$.
+***I noticed the expectation form and the correlation are removed in your ELBO equation (6). So is this a correct optimization objective, and can you provide detailed math formulations?***
+3. Is it possible to attach the link to the anonymous code for implementation details? 
+
+***Reference***
+
+[1] Vahdat, Arash, and Jan Kautz. ""NVAE: A deep hierarchical variational autoencoder."" Advances in Neural Information Processing Systems 33 (2020): 19667-19679."
+60,2nLeOOfAjK,Versatile Neural Processes for Learning Implicit Neural Representations,xoTzt88ayk,Mathematically incorrect ELBO (Optimization Objective) and Incorrect Evaluation in Experiments (Code Implementations)?,['~Richard_S_Liu1'],"Hi Author and Other Reviewers,
+
+I double-checked the revised optimization objective and the uploaded codes and found crucial points incorrect in the manuscript.
+
+***1. Incorrect ELBO***
+
+**The evidence lower bounds (ELBOs) as the model optimization objective in the latest three versions of the manuscript are different from each other, and none of them are correct in math**. Note that the KL divergence term inside the Eq. (7) should be $\sum_{l=2}^{L} E_{q_{\phi}(z_{l}|z_{<l},x)}[KL(q_{\phi}(z_{l}|x,z_{<l},D_{C},D_{T})||p_{\psi}(z_{l}|z_{<l},D_{C},X_{T}))]$. This can be verified in step-by-step derivations.
+Meanwhile, the used approximate posterior **is not hierarchical at all, since $q_{\phi}(z_{<k}|D_C , D_T ) = \prod_{i=1}^{k-1} q_{\phi}(z_{i}|Y_{<i},D_C,D_T)$ assumes the independence of all $z_i$ (these l.v.s are not correlated at all in the paper)**. 
+
+
+***2. Incorrect Evaluation (Importance-Weighted ELBO? in testing from Uploaded Codes)***
+
+Take a look at the uploaded code in the catalogue **""…/regression/model/vnp.py""**, the Class VNP forward section: when else (not self.training), **it computes the ELBO  and then uses the elbo to obtain the evaluation result from the $ll = logmeanexp(loss)$**. This is different from the evaluation in NP models, which use the importance-weighted likelihoods instead of ELBO. 
+"
+61,3vOtC1t1kF,Efficient Personalized Federated Learning via Sparse Model-Adaptation,OesLOCYoW9N,"To reviewers and authors, concerns regarding the claims and contributions of the paper",['~Rivan_Ilk1'],"Dear authors and reviewers,
+The paper is an interesting read, and the reviewers’ comments are also quite insightful towards understanding the claims of the paper. In this regard, the following points may be helpful for further evaluation of the current work.
+
+- **Limited novelty and potentially ambiguous claims**
+
+**The idea of learning sparse models in a federated setting has been considered in many prior works [1], [2]**. In particular, these works do not require any additional step of model compression after the training procedure is completed. The current work has neither compared with these works nor even cited them anywhere in the paper. Furthermore, these prior works achieve a high accuracy despite having a density of less than 10% (equivalent to s<=0.1 in current paper). The current paper consistently considers much higher levels of density, which makes it unclear if it would perform well at low density. Also the proposed scheme of using a gated mask that adapts to each data point can add significant memory overhead for clients as the entire model has to be present in the memory, both for training and inference.
+
+In continuation with the above comment, **it is not clear how the authors can claim that their proposed approach is able to speed up training or inference, or can save communication bandwidth (the authors have made this seemingly unreasonable claim in the last line of Section 5.1)**.  As the local model density is not that low (~25-30%), the upload communication cost saving is limited. More precisely, due to the irregular nature of the sparsity, there should be additional overhead of indexing causing further reduction of comm. saving.
+During downlink, as the global model is dense, there is no comm. benefit. In contrast, [1] leveraged the advantage of sparsity during both up and downlink. 
+
+Regarding computation efficiency, it is well-known in pruning literature that when unstructured sparsity is utilized for training/inference models, speedups are not observed unless there is a density of the model is lower than 10% [3]. Since the gated mask is equivalent to unstructured sparsity, **authors’ claims regarding savings in computations during training/inference need to be substantiated through empirical experiments**.
+
+- **Weak theoretical analysis**
+
+**While the attempt of the authors to provide a theoretical analysis is appreciated, the assumptions 1 and 2 are too strong to begin with**. In particular, Assumption 1 does not appear in data distribution form in prior works, which typically make assumptions on the objective functions instead of data distributions. Furthermore, Assumption 2 needs to be further justified. The authors have made the assumption that both the sparse models and the learned gates are Lipshitz bounded, without any justifications. The authors need to provide intuitive reasons behind making such strong assumptions. These assumptions on model parameters/gates do not seem to exist in any prior works, and in absence of any justification of these new assumptions, *the current foundations of theoretical analysis may be considered as weak. This in turn limits the scope of such analysis*.
+ 
+[1] Bibikar S, Vikalo H, Wang Z, Chen X. Federated dynamic sparse training: Computing less, communicating less, yet learning better. In AAAI, 2022. 
+[2] Xinchi Qiu, Javier Fernandez-Marques, Pedro PB Gusmao, Yan Gao, Titouan Parcollet, and Nicholas Donald Lane. ZeroFL: Efficient on-device training for federated learning with local sparsity. In ICLR, 2021.
+[3] Deep Compression: Compressing Deep Neural Networks with Pruning, Trained Quantization and Huffman Coding. ICLR, 2016 (best paper)."
+62,sP0p5S-gZ2,Optformer: Beyond Transformer for Black-box Optimization,RPPQqb51mg,Two ICLR'23 submissions that are very similar,['~Wenlong_Lyu1'],"Somehow I found these two ICLR submissions very similar, with regard to the figures, formulae, and proposed methods in the two papers, the difference seems to be the AI models used (Transformer vs CNN)
+
+1. [OPTFORMER: BEYOND TRANSFORMER FOR BLACKBOX OPTIMIZATION](https://openreview.net/pdf?id=sP0p5S-gZ2)
+2. [DECN: EVOLUTION INSPIRED DEEP CONVOLUTION NETWORK FOR BLACK-BOX OPTIMIZATION](https://openreview.net/pdf?id=Ur_qORZ6-9R)
+
+For example:
+- Figure 1 of [1] and [2] are basically the same
+- Figure 2 of [1] and figure 6 for [2] are basically same
+- Eq. 7 of [2] and Eq. 12 of [1] are the same
+- Algorithm 1 of both [1] and [2] are very similar"
+63,xWFguIF_hG,In Search of Smooth Minima for Purifying Backdoor in Deep Neural Networks,JNahAVMFmUt,Related Work,['~Zhiwei_Jia1'],"Hi authors, I really like your work on using the Fisher Information Matrix to improve the robustness of DNN. Please consider citing the following paper that also utilizes FIM for better generalization.
+
+[1] Information-Theoretic Local Minima Characterization and Regularization
+
+ICML 2020
+
+Zhiwei Jia, Hao Su"
+64,dSYkYNNZkV,Localized Graph Contrastive Learning,C7U3KSp9AnO,Misattribution of datasets,['~Benedek_Andras_Rozemberczki1'],"The paper misattributed the authorship of the Chameleons and Squirrels datasets. These datasets were proposed in this ICLR submission:
+
+https://openreview.net/forum?id=HJxiMAVtPH
+
+The Pei et al. paper cited by the authors took the Squirrel and Chameleons datasets and used those for benchmarking, but had nothing to do with the creation of the datasets. The correct citation for the paper which proposed the datasets is:
+
+```bibtex
+>@article{musae,
+          author = {Rozemberczki, Benedek and Allen, Carl and Sarkar, Rik},
+          title = {{Multi-Scale Attributed Node Embedding}},
+          journal = {Journal of Complex Networks},
+          volume = {9},
+          number = {2},
+          year = {2021},
+}
+```"
+65,sciA_xgYofB,Impossibly Good Experts and How to Follow Them,qt3c9seHoUX,Missing relevant related works,['~Aviv_Tamar1'],"This is an interesting problem, which several recent works already tried to tackle. Please see:
+1. Nguyen, Hai Huu, et al. ""Leveraging Fully Observable Policies for Learning under Partial Observability."" 6th Annual Conference on Robot Learning.
+2. Warrington, Andrew, et al. ""Robust asymmetric learning in pomdps."" International Conference on Machine Learning. PMLR, 2021.
+3. Weihs, Luca, et al. ""Bridging the imitation gap by adaptive insubordination."" Advances in Neural Information Processing Systems 34 (2021): 19134-19146.
+
+It would be good to situate ELF in this space."
+66,yyBis80iUuU,Hybrid RL: Using both offline and online data can make RL efficient,FqV78Kuo7R,Related Work,['~Zhiwei_Jia1'],"Hi authors, I really like your work on the Hybrid Q-Learning. Please consider citing the following paper that utilizes offline demos generated by distributed online agents for efficient online policy learning.
+
+[1] Improving Policy Optimization with Generalist-Specialist Learning
+
+ICML 2022
+
+Zhiwei Jia, Xuanlin Li, Zhan Ling, Shuang Liu, Yiran Wu, Hao Su"
+67,W-nZDQyuy8D,GOOD: Exploring geometric cues for detecting objects in an open world,oLFQV3JbThY,Questions About Open World Detection on Depth Image,['~Yuchen_Wu3'],"Hi, I'm also working on the direction of open-world proposal and trying to reproduce the result in your paper. I use the V2 model of OmniData and inference on the padded COCO image according to the paper. Then I train an OLN model on the depth images by directly loading the depth images as 3-channel arrays (duplicating the depth channel). The model is trained for 8 epochs using the same schedule as the OLN code. But I only get AR@100=23.4, far from the result you provide in Fig6a, which is 27.7. Could you please provide more details on training the proposal network on depth so that I can check if there's anything that I missed (e.g. the data aug)? Thank you very much."
+68,FRLswckPXQ5,Improved Convergence of Differential Private SGD with Gradient Clipping,S-zAJR_bE_,Expect for clarifications on some technical points,['~Xiaodong_Yang7'],"Introducing the *growth condition* and *sub-Gaussian gradient noise* into the theoretical studies of private empirical minimization, this manuscript also made contributions by proposing a well-motivate variant--value clipping.
+
+However, I got confused when reading the detailed proofs of this manuscript, and got stuck especially in the **proof of Proposition 4.4**, presented in Appendix C.3, page 20-21. Two **non-trials gaps** exist:
+
+$\bullet$ **Circular Argument in applying Proposition 4.3.** In more details, Propositions 4.2&4.3 sequentially establish high-prob upper bounds on the function value difference $\nabla f(w^{(t)})-f^\ast$, but the series $w^{(t)}$ should come from a **non-clipping method, Algorithm 2.** In the first half of the proof of Proposition 4.4, the authors **directly apply Proposition 4.3 to the series output by Algorithm 1 (which involves gradient clipping),** obtaining a high-prob upper bound on the gradient norm $\nabla f_i(w^{(t)})$, thus concluding clipping doesn't happen. This process involves some circular argument.
+
+$\bullet$ **Ignoring Bias Term when adopting Lemma A.11** This lemma is taken from Theorem 2.1 (Ghadimi & Lan, 2013, https://arxiv.org/abs/1309.5549). The authors seem to miss a very important condition in this theorem: **gradient estimates need to be unbiased,** $\mathbb{E}[\nabla f_\xi(w)]=\nabla f(w)$. But the second half of the proof of Proposition 4.4 applies this theorem to Algorithm 1, in which there might be conditional bias for the gradient estimate. Specifically, event $\mathcal{E}$ involves the randomness of drawing mini-batches $B_t\subset[T]$, so $B_t$ is not independent of event $\mathcal{E}$, leading to possibly $\mathbb{E}[\frac{1}{B}\sum_{i\in\mathcal{B}_t}\nabla f_i(w^{(t)})|\mathcal{E}]\neq\nabla f(w^{(t)})$. **The authors seem to forget to checking the unbiased condition.**
+
+Besides these two gaps, I also spot other statements to be refined. To name a few, the authors directly use Theorem 3.4 (Theorem 1 in (Abadi et al, 2016, https://arxiv.org/abs/1607.00133)) to prove the privacy guarantee. But in fact, (Abadi et al, 2016) employs Poisson subsampling to draw the mini-batches, different from the uniform sub-sampling employed in Algorithm 1 here. So the privacy accounting should be refined a little more.
+
+Specifically, I think it would be nice for the authors to cite compare more recent results in private non-convex erm, like https://arxiv.org/pdf/2206.07136.pdf, https://arxiv.org/pdf/2206.13033.pdf, and the references therein. A comprehensive comparison on used assumptions and conclusions would help everyone better identity the contributions of this manuscript.
+"
+69,IxmWsm4xrua,Toeplitz Neural Network for Sequence Modeling,YI8vM1WWWh,Connection to global convolutions and MLP-based convolutional parameterizations,['~David_W._Romero1'],"Dear authors, 
+
+thank you very much for your interesting contribution! Very nice paper!
+
+I have a question wrt to your method. Can I understand your method as computing for a signal of length $n$ a global convolutional kernel of length $2n-1$ via the RPE network & then utilizing Toeplitz matrices to compute a (circular) convolution-like operation with the resulting kernel? If so, I think this method is very related to CKConv ( https://arxiv.org/abs/2102.02611 ), where an MLP is used to construct global convolutional kernels to perform global convolutions. 
+
+Looking forward to hearing your opinion :)
+
+Cheers,
+
+David"
+70,gHi_bIxFdDZ,Understanding Gradient Regularization in Deep Learning: Efficient Finite-Difference Computation and Implicit Bias,mTtPM_V9x2,Related Work,['~Zhiwei_Jia1'],"Hi authors, I like your work on using the finite-difference computation to efficiently regularize the gradient norm term. Please consider citing the following paper that applies gradient regularization similarly by finite-difference computation.
+
+[1] Information-Theoretic Local Minima Characterization and Regularization
+
+ICML 2020
+
+Zhiwei Jia, Hao Su"
+71,OnD9zGAGT0k,Diffusion Posterior Sampling for General Noisy Inverse Problems,pJCHnUpTwt,"Eq.(21) in the proof seems to confuse ""global maxima"" with ""expectation""",['~Yiwei_Guo1'],"The paper claims to find a global maxima of $p(x_0 | x_t)$, stated in Eq.(21). The provided derivation is done by taking gradient w.r.t $x_t$ on Eq.(20). This is not correspondent to seeking the maxima of $p(x_0 | x_t)$, because one should take gradient of $x_0$ instead. By Tweedie's formula as the authors have mentioned, the Eq.(21) actually shows that $\hat x_0$ is an **expectation** rather than the **global maxima** of posterior.
+
+There is an intuitive explanation why it cannot be global maxima. Think of $x_0$ takes $-1$ or $1$ with equal probability, then $p(x_0 | x_t=0)$ must be an even function, i.e. $\nabla _{x_t} \log p(x_0 | x_t = 0) = 0$. Therefore, $\hat x_0 = 0$. But obviously the posterior has two modes on the left and right side of 0. In other words, Eq.(21) implies there is a unique global maxima, but in reality this is not always the case. Instead, there would be a unique expectation all the time.
+
+This probable mistake, if it is, will lead to the break of logical chain. Laplace's method (Proposition 2) requires that function $f(\cdot)$ has a global maxima, so it's hard to be applied to the posterior distribution. Meanwhile, Proposition 2 is necessary in the proof of the paper. As a result, the theoretical correctness seems a little bit doubtful."
+72,ufCQZeAMZzf,Low-Rank Graph Neural Networks Inspired by the Weak-balance Theory in Social Networks,qkIhaMPivJa,Misattribution of datasets,['~Benedek_Andras_Rozemberczki1'],"The paper misattributed the authorship of the Chameleons and Squirrels datasets. These datasets were proposed in this ICLR submission:
+
+https://openreview.net/forum?id=HJxiMAVtPH
+
+The Pei et al. paper cited by the authors took the Squirrel and Chameleons datasets and used those for benchmarking, but had nothing to do with the creation of the datasets. The correct citation for the paper which proposed the datasets is:
+
+```bibtex
+>@article{musae,
+          author = {Rozemberczki, Benedek and Allen, Carl and Sarkar, Rik},
+          title = {{Multi-Scale Attributed Node Embedding}},
+          journal = {Journal of Complex Networks},
+          volume = {9},
+          number = {2},
+          year = {2021},
+}
+```"
+73,pf8RIZTMU58,DepthFL : Depthwise Federated Learning for Heterogeneous Clients,ZFANYutyTv9,"To reviewers and authors, regarding limited comparisons and evaluations of the work",['~Rivan_Ilk1'],"Dear authors and reviewers,
+
+The paper is enjoyable to read. The reviewers’ comments and the authors’ responses are quite insightful as well. In this regard, the following points may be helpful for further evaluation of the current work.
+
+**Missing important comparisons with related work**
+
+WIth similar intention as that of DepthFL, InclusiveFL[1] and FjORD[2] also tried to solve device heterogeneity. Moreover, both FjORD and inclusiveFL used distillation to improve the performance under such settings. Interestingly, InclusiveFL also leveraged the depth heterogeneity as this work to address device heterogeneity. To understand the true value of the paper, a fair and possibly more comprehensive comparison with these works is expected.  For example, it is not clear from Table 3 whether the accuracies are compared on a similar parameter and/or FLOPs budget.
+
+**Concern: additional compute and storage cost associated to BottleNeck blocks of Auxiliary classifiers**
+
+The original self-distillation paper [3] used parameter heavy bottleneck layers (auxiliary classifier modules), particularly for the earlier ResNet blocks, use of similar sized auxiliary classifier modules would diminish the computation and storage advantage in case of FL. Moreover, as the authors assume clients 1,2 (in Fig. 1) are of lower capacity, application of these auxiliary modules often may not be feasible due to the significant additional overhead. In contrast FjORD can leverage width dropping (instead of depth dropping), without essentially incurring any need of auxiliary classifier module.   
+
+**Potentially unfair discussion on Exclusive Learning**
+
+It seems that the motivation and discussion provided in Section 4.2 is a bit unfair. First of all, the authors should use FjORD [2] instead of HeteroFL [5] for their comparisons. Secondly, the authors have considered the simplistic IID setting where missing data from a subset of clients may not be a major concern. However, in the practical scenarios of extreme non-IID such as [4], some clients may have exclusive access to a subset of training labels. In such cases, ignoring updates from those clients (as done in Exclusive Learning) would clearly degrade training performance as the model never sees updates belonging to that exclusive subset of labels. On the other hand, HeteroFL/FjORD would be able to still observe those updates. It will be of significant interest to the wide FL community if the authors provide a similar discussion (as in Section 4.2) for extreme non-IID settings.
+
+[1] Ruixuan Liu, Fangzhao Wu, et al. No one left behind: Inclusive federated learning over heterogeneous devices. In KDD, 2022.
+[2] Horvath, S., Laskaridis, S., et al. FjORD: Fair and accurate federated learning under heterogeneous targets with ordered dropout. In NeurIPS, 2021.
+[3] Zhang, L., Song, J., Gao, A., Chen, J., Bao, C. and Ma, K. Be your own teacher: Improve the performance of convolutional neural networks via self distillation. In ICCV, 2019.
+[4] McMahan, B., Moore, E., Ramage, D., Hampson, S. and y Arcas, B.A. Communication-efficient learning of deep networks from decentralized data. In AISTATS, 2017.
+[5] Diao, E., Ding, J. and Tarokh, V. HeteroFL: Computation and Communication Efficient Federated Learning for Heterogeneous Clients. In ICLR, 2020.
+"
+74,dSYoPjM5J_W,Revisiting Graph Adversarial Attack and Defense From a Data Distribution Perspective,Q7Pi4kCchy,Missing discussion with a highly related work and some questions,['~Yongqiang_Chen1'],"Hi, this is really an interesting work that discovers the distribution shifts in terms of structural information in a semi-supervised node classification task. The tips are informative with plentiful theoretical and empirical support.
+
+We found that the authors seem to miss the discussion with a highly related work [1], where we formally study the distribution shifts during the graph injection attack in terms of node feature information, i.e., homophily distribution before and after attacks. 
+
+Maybe I missed something, but it seems that the authors are studying the evasion attacks in the transductive semi-supervised node classification. It seems this setup would violate the definition of the transductive setting where the model is able to access all of the nodes and edges during training, as the adversary would modify the nodes and edges during the testing. Although it seems not to invalidate the main conclusions and contributions of the paper, could the authors offer some explanations for studying this setup?
+
+
+
+**References**
+
+[1] Chen et al., Understanding and Improving Graph Injection Attack by Promoting Unnoticeability, ICLR 2022."
+75,_Mic8V96Voy,Eva: Practical Second-order Optimization with Kronecker-vectorized Approximation,FRlysPhTKu,This work's ImageNet results are worse than established baselines for Shampoo,['~Rohan_Anil1'],"I would like to point out that this paper states results for Shampoo on ImageNet + ResNet50 are worse than established baselines from MLPerf Training 1.0 Open Submission as well from Table 1, Pg 11: https://arxiv.org/pdf/2002.09018.pdf
+
+Batch size: 32768 requires 44 epochs or 1729 steps to achieve 75.9% 
+See: https://github.com/mlcommons/training_results_v1.0/blob/master/Google/results/tpu-v4-256-JAX-Distributed-Shampoo/resnet/result_0.txt
+
+Batch size: 65536 requires 60 epochs or 1178 steps see: https://github.com/mlcommons/training_results_v1.0/blob/master/Google/benchmarks/resnet/implementations/resnet-research-JAX-Distributed-Shampoo-tpu-v4-256/train.py#L558 
+
+This work makes use of batch size of 2048 (64 x 32) for which higher order methods only require much fewer epochs, and existing results of Shampoo are better than results presented for Eva which takes 46 epochs for 3072 (96 x 32) batch size."
+76,1tHAZRqftM,Multi-task Self-supervised Graph Neural Networks Enable Stronger Task Generalization,0xYvOtFlTW,Misattribution of datasets,['~Benedek_Andras_Rozemberczki1'],"The paper misattributed the authorship of the Chameleons and Squirrels datasets. These datasets were proposed in this ICLR submission:
+
+https://openreview.net/forum?id=HJxiMAVtPH
+
+The Pei et al. paper cited by the authors took the Squirrel and Chameleons datasets and used those for benchmarking, but had nothing to do with the creation of the datasets. The correct citation for the paper which proposed the datasets is:
+
+```bibtex
+>@article{musae,
+          author = {Rozemberczki, Benedek and Allen, Carl and Sarkar, Rik},
+          title = {{Multi-Scale Attributed Node Embedding}},
+          journal = {Journal of Complex Networks},
+          volume = {9},
+          number = {2},
+          year = {2021},
+}
+```
+"
+77,qNLe3iq2El,Mega: Moving Average Equipped Gated Attention,ZfAyY1nzPFk,Wrt to long term dependencies & related work,['~David_W._Romero1'],"Dear authors,
+
+Thank you very much for your interesting contribution!
+
+Some time ago I tried to contact you by mail but never got a reply. Therefore, I've decided to posted here. In particular, I wanted to point you to a few papers that I think are quite related, but are not discussed / cited:
+
+1. CKConv ( https://arxiv.org/abs/2102.02611 ) introduces the SC raw dataset and is another approach able to model long term dependencies at every layer. Subsequently, both FlexNets ( https://arxiv.org/abs/2110.08059 ) and CCNNs (https://arxiv.org/abs/2206.03398) report results in this dataset as well (in fact CCNN still outperforms MEGA). 
+
+2. FlexConv introduces a masking mechanisms with a Gaussian mask. From what I understand this mechanism is very related to the EMA mechanism used in your paper. We observe that FlexConv brings important improvements over CKConv, alike to those observed in your paper for self-attention.
+
+3. In addition, we would like to note that CCNNs are, to the best of our knowledge, competitive with S4, and thus, within the best existing approaches. Note that this is also a convolutional architecture and therefore its complexity behave much better than self-attention. Consequently, we believe that this architecture is very relevant to the comparisons performed in your paper e.g. in the LRA dataset. Moreover, and in contrast to S4, the CCNN is to the best of our knowledge the only long term network that can be directly applied to $\mathbb{R}^N$ data. Given that you also tackle tasks on images, we thing that a pointer there would be interesting and help the reader.
+
+We would sincerely appreciate if you could discuss / cite these papers in case you find them relevant.
+
+Best regards,
+
+David"
+78,qNLe3iq2El,Mega: Moving Average Equipped Gated Attention,6hgh8IUsfzB,"Mega, EMA, S4D Ablations",['~Albert_Gu1'],"As discussed by some reviewers and in other threads in this forum, Mega’s core EMA layer is closely related to prior methods such as S4D (more details provided in reply to this post). During the rebuttal phase, the authors ran ablations on these methods. I have independently run some of these ablations, as well as reproduced the Mega model in another codebase and performed many more ablations.
+
+## Ablations in Mega codebase
+Since the earlier thread, I have run additional ablations in the official Mega codebase using their train script, swapping out the inner EMA layer with interchangeable baselines such as S4D. The dataset is LRA-Image (grayscale CIFAR-10) with chunk size $c=128$. The baselines were run out-of-the-box with no modifications or tuning, and *all hyper-parameters match those for the best-performing Mega-EMA model*.
+
+In addition to the default S4D-Lin model, I have included another variant called **S4D-Real** which was published as an ablation to S4D. This masks the model so that the $A$ matrix is always real-valued, which is a *prior ""multi-head EMA"" almost identical to Mega's EMA layer with only minor differences in the parameterization*.
+
+
+| Model                | Params   |   s/epoch |   Val Acc |
+| -------------------- | -------- | --------- | --------- |
+| Mega-EMA (original)  | 2.82M    |       195 |     86.10 |
+| Mega-S4D-Real        | 2.74M    |       152 |     87.00 |
+| Mega-S4D             | 2.74M    |       152 |     87.12 |
+
+**[Training and validation curves](https://github.com/HazyResearch/state-spaces/blob/e9ce652126cc773dcb6bb7d6f7270c425d4a36a2/configs/experiment/mega/lra-image/mega_ablations_mega_repo.pdf)** 
+
+## Ablations in S4 codebase
+
+I have reproduced the Mega model and run several ablations on various model sizes and architectures.
+All code, experiment config files, and a README describing them in more detail has been released publically **[here](https://github.com/HazyResearch/state-spaces/tree/ede0b53fe4bcfccf185c32b99880463b2a2cd085/configs/experiment/mega/lra-image)**.
+
+Outside of the inner EMA/S4D layer, *all hyperparameters are matched to the best-performing hyperparameters of the Mega-EMA model* specified by the paper. All results are 1 single run with *no tuning* for the baselines.
+
+
+
+### Large Mega model
+
+The following models attempt to reproduce the original Mega model above. Details in reply.
+
+| Model                   | Params   | s/epoch   | Val Acc   |
+| --------------------    | -------- | --------- | --------- |
+| (large) Mega-EMA        | 2.73M    | 180       | 82.56     |
+| (large) Mega-EMA-Repro^ | 2.65M    | 124       | 83.42     |
+| (large) Mega-S4D-Real   | 2.65M    | 121       | *84.44*   |
+| (large) Mega-S4D        | 2.65M    | 122       | **86.22** |
+
+^ This is a slightly refactored version of the original Mega module, in a way that parameter matches the S4D baselines and allows swapping them in easily, that in fact seems to have improved and sped up the model. Details in reply.
+
+
+### Small Mega model
+
+The model depth, width, training/warmup steps, and weight decay were halved. A single run was performed with no other experimentation or tuning.
+
+| Model                  | Params   | s/epoch   | Val Acc   |
+| --------------------   | -------- | --------- | --------- |
+| (small) Mega-EMA       | 299K     | 51        | 81.16     |
+| (small) Mega-EMA-Repro | 279K     | 51        | 80.76     |
+| (small) Mega-S4D-Real  | 279K     | 54        | *81.20*   |
+| (small) Mega-S4D       | 279K     | 53        | **81.46** |
+
+### Large vanilla model (no gating or attention)
+
+The following models use a basic convolution block to investigate the interchangeable inner layer (EMA vs S4D) in isolation.
+
+| Model                | Params   |   s/epoch | Val Acc   |
+| -------------------- | -------- | --------- | --------- |
+| (large) EMA          | 4.35M    |       128 | 70.96     |
+| (large) EMA-Repro    | 3.96M    |       119 | 71.52     |
+| (large) S4D-Real     | 3.96M    |       105 | *74.30*     |
+| (large) S4D          | 3.96M    |       105 | **88.28**   |
+
+
+
+### Small vanilla model (no gating or attention)
+
+| Model                  | Params   | s/epoch   | Val Acc   |
+| --------------------   | -------- | --------- | --------- |
+| (small) EMA            | 333K     | 31        | 69.96     |
+| (small) EMA-Repro      | 267K     | 30        | 69.38     |
+| (small) S4D-Real       | 267K     | 32        | *70.88*   |
+| (small) S4D            | 267K     | 30        | **82.78** |
+
+**[All training and validation curves](https://github.com/HazyResearch/state-spaces/blob/e9ce652126cc773dcb6bb7d6f7270c425d4a36a2/configs/experiment/mega/lra-image/mega_ablations_10000_warmup_all.pdf)**"
+79,0L8tuglXJaW,HOYER REGULARIZER IS ALL YOU NEED FOR EXTREMELY SPARSE SPIKING NEURAL NETWORKS,g0fBaG4I1S,Notable points of concerns regarding the claims of the paper - 1,['~Justin_Liu1'],"Thanks to the authors and reviewers for presenting and evaluating this interesting work. In this regard we would like to mention few point (some of them are already mentioned by the respected reviewers as well) that may be important for the proper evaluation of the paper.
+
+`1. On contribution: Concern with motivation and novelty as highlighted by respected reviewers`
+
+**Motivation**. The Introduction inducts few BNN papers, however, did not incorporate the recent BNN variants [1-3]. This to our opinion question the motivation to have an alternative that indeed isn't outperforming the BNNs. Moreover, the training is significantly costlier due to general requirements of SNNs to have more epochs as opposed to DNNs. 
+
+**Novelty**. The paper heavily relies on existing work of Hoyer regularizer and trainable thresholding to present their work. The learnable aspect of the ""clipping threshold"" as claimed in the rebuttal as a part of novelty, is not, the clipping aspect was introduced here following the criteria of Hoyer extremum. On the contrary earlier works used train threshold and often used to apply a constant clipping factor.
+
+**So, to our understanding, the precise difference is in the ""aspect"" of ""how the clipping of trainable threshold is done""**
+
+Also, it should be noted that the clipped threshold being lower than $v^{th}$, comes as an inherent property due to the selection of the Hoyer square reg. based normalization. This has already been shown in one of the papers referred by the authors as an inherent Hoyer reg. property [5] (see Eq. 1-3). Moreover, as the improvement is negligible, a constant clipping factor might have a good job as well.
+
+**post-rebuttal comment**. We would also like to highlight one the authors' rebuttal response on novelty: ""*In contrast, to the best of our knowledge, no work (even in sparsity-induced binary neural networks (BNN) that are similar to our one-time-step SNNs) has jointly optimized the distribution of the SNN membrane potential (or activation map in the context of BNNs) and the relative placement of the SNN (or BNN) threshold to improve the accuracy-energy trade-off.*""
+
+* The recent most BNNs leverage +1/-1 activation thus there is **no real need** of including this study of Hoyer. Both the [0,1] BNN and SNN (this paper) suffers from significant accuracy drop compared to the other alternative while having significant compute burden due to larger model/bit-width overhead.
+
+* The SOTA BNN models are **better in accuracy and energy efficient** compared to the presented SNN counter parts.
+
+* Improvement of sparse activation is largely a function of architecture change that is already proposed in the traditional BNNs. Interestingly, **for ResNet18 the Hoyer reg. effectively reduces sparsity** (Table 5 of the paper). So, the **results contradicts with the claim of Hoyer consistently inducing sparsity**.
+
+* It is not clear why this is a  ""joint optimization"". The authors learn a threshold $v^{th}$ same as earlier works (that is a part of **single optimization associated to SGD/ADAM optimizer driven loss including Hoyer reg. component to minimize**), scales them with Hoyer squared regularize (channel wise) as computed via activation maps (no-trainable parameters here). likewise, BN learnable parameters are not a part of joint opt either, this is not correct claim.
+
+Also, the architectural modifications adapted in contrast to existing one-time step approach is not new, the authors themselves highlighted this.
+
+`Thus as highlighted by respected reviewers, the paper may still miss the motivation and novelty considering the post rebuttal comments/draft`.
+
+`2. On results: Ambiguous claiming on being better than BNN variants, which as per published works is not the case`
+
+We see the authors justified the motivation of 1-step SNN due to their potential benefits over BNNs (state-of-the-arts). We think this is not the case. Follows is the comparison with published 1-bit weight-activation networks that are significantly less computing burden than the VGG16, yet achieve better results than this works.
+
+On CIFAR-10
+
+| Model | Method | W/A bit width|  Accuracy |
+|--|--|--|--|
+|ResNet18 | ReCU (2021) [1] | 1/1 | **92.8%** |
+|ResNet18 | AdaBin (2022) [2] | 1/1 | **93.1%** |
+| VGG16| This paper| 2/1 | 92.34% |
+| ResNet18 | This paper| Floating point | 91.48% |
+| ResNet18 | This paper| 2/1 | Not provided |
+
+On ImageNet
+
+| Model | Method | W/A bit width|  Accuracy |
+|--|--|--|--|
+|ResNet18 | ReActNet (2020) [3]| 1/1 | 65.5% |
+|ResNet18 | AdaBin (2022) [2] | 1/1 | 66.4% |
+|ReActNet-A| ReActNet (2020) [3] | 1/1 | **69.4%** |
+|ReActNet-A| AdaBin (2022) [3] | 1/1 | **70.4%** |
+| ResNet50 | This paper| FP weights | 66.32% |
+| VGG16| This paper| FP weights | 68% |
+| VGG16| This paper| 2/1 | Not provided |
+
+*[These show that several times even the FP-32 SNNs can't outperform the binary DNN counterparts]*"
+80,vqSyt8D3ny,Towards Robust Object Detection Invariant to Real-World Domain Shifts,s6RXEYNvIcH,Some questions,['~Yuxi_Li2'],"Hi, I just came across this submission and admire the insightful motivation and analysis on the relationship between channel-wise statistics and generality of object detections. While I have some question about the technique in this paper, I appreciate if authors can provide more detailed discussion:
+
+- The idea of perturbation on feature in terms of its global/local statistic is very similar to some works already designed for general data augmentation or DG in classification as below[1,2], I think it will be better to further discuss the advantage of NP over these methods
+
+[1] Li, Pan, et al. ""A simple feature augmentation for domain generalization."" Proceedings of the IEEE/CVF International Conference on Computer Vision. 2021.
+
+[2] Wang, Yulin, et al. ""Implicit semantic data augmentation for deep networks."" Advances in Neural Information Processing Systems 32 (2019).
+
+- In the society of Domain Generalization and its application, it seems to be a consensus that cross-domain variance is due to the style, which is highly related to global statistic of image features, but adjustment in global statistics can not affect the local style, texture of geometry layout of a specific object. However, in some cases, the cross-domain difference can also lie in local and conceptual content, e.g. the concept ""people"" in a real photo and in a clipart manifest totally different texture or local layout, there are also some datasets of object detection considering this issue[3], I think it will be better to take this local variance into account for more generalizable object detection systems.
+
+[3] Inoue et al. ""Cross-Domain Weakly-Supervised Object Detection Through Progressive Domain Adaptation."" Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition. 2018. 
+
+"
+81,Rl4ihTreFnV,Robust Multi-Agent Reinforcement Learning with State Uncertainties,0RppANPzWt,Comments on this paper,['~Ziyuan_Zhou1'],"In this paper, the derivations of all the theorems are logical and elegant. I'm very interested in this work since the definition of MG-SPA seems to be very similar to that of the state-adversarial stochastic game (SaSG) in our previous work [1]. Our work is about the extension of SA-MDP to multi-agent reinforcement learning. We prove that under the joint optimal adversarial perturbation, the Nash equilibrium of SaSG may not always exist and analyze the feasibility of adversarial perturbations. This paper defines robust equilibrium and analyses the existence of robust equilibrium. I hope to have more discussions with you.
+[1] Zhou Z, Liu G. RoMFAC: A Robust Mean-Field Actor-Critic Reinforcement Learning against Adversarial Perturbations on States[J]. arXiv preprint arXiv:2205.07229, 2022."
+82,WVRb98rwbv9,Truthful Self-Play,8fvtcNoIgw,Potentially bad-faith submission,['~Michael_Noukhovitch1'],"This submission, Truthful Self-Play, is nearly identical to previous submissions to other ML conferences dating back at least 2 years to [ICLR 2021]( https://openreview.net/forum?id=0LlujmaN0R_ ) (note this link de-anonymizes the author). There is no content difference between the submission to ICLR 2021 and this submission. It seems as though the author of this paper has submitted their work to various machine learning conferences and despite getting feedback numerous times, has not changed it at all but continued to resubmit it as-is.
+
+This feels like bad faith on the part of the author. I understand that reviewers may vary and authors may seek to get reviewers that are more favourable to their viewpoint so I do not fault the author for resubmitting. But it does feel disrespectful to the time and effort of previous reviewers to completely ignore their reviews and change nothing between resubmissions for two whole years. For full disclosure, I was a previous reviewer of this work (but not in ICLR 2021). 
+
+I do not wish to bias the reviewers in any direction, nor is this a critique of the content of the submission itself. I would just like to draw the ACs attention to what I consider a bad faith effort in the context of our conference reviewing system."
+83,OK6LV2q50l,FedPSE: Personalized Sparsification with Element-wise Aggregation for Federated Learning,ofkqWJ3fGQ,"To reviewers and authors, regarding some critical issues associated with the current manuscript.",['~Annette_Cheng1'],"Dear authors and reviewers,
+I really enjoyed reading the paper and understanding the scope of the work, particularly from the reviewer’s comments and the authors' rebuttal. In this context I would like to highlight the following points that I think may further help the evaluation of the current manuscript.
+
+**Important related works on recent development in literature of FL that addresses the issue highlighted**
+
+*I understand Section 4.1 clearly mentioning the goal of the work is to be communication efficient. I believe there has been quite a lot of work that the authors might have missed, including (A-D), that not only addressed the issue of communication load but also computation overhead (B-D).*
+
+**Concern with EWA as a contribution: FedDST (D) presented the idea of *""sparse weighted averaging""* that is same as that of EWA (which is claimed to be a contribution of the current manuscript)**
+
+*I would like to take this opportunity to route the readers to the fact that the idea of element wise averaging for sparse models was introduced in FedDST(D) [equation 3 in the Methodology section] and the authors of that manuscript have used this form of averaging for the same purpose of ""normalizing the weights based on their participation rate"", as the current manuscript.*
+
+*Please note: FedDST(D) also demonstrated the application of this in non-iid dataset (pathologically non-iid to be precise).*
+
+**Concern with UPS as a part of the contribution: Both (B,D) successfully demonstrated various variants of top-K sampling similar (can be argued to be even better) to the what is done in UPS**
+
+*I would like to highlight that the idea of top-K sampling is not new (as partly mentioned by the authors as well). In particular, few recently published works  (e.g.: (D) in AAAI 2022, (B) in ICLR 2022) have taken this idea one step further to demonstrate top-K sampling while sparsely updating the weights locally. This ensures not only communication benefits, but also computation benefits (D). (B) even comprehensively demonstrated various variants of this top-K sampling.*
+
+**FedPSE has no computation benefits whereas some of the published works has (B,D)**
+
+*As in FedPSE the clients locally update all the weights, and only after local training update top-K, it provides no computation benefits, despite the sparsity choice of 0.9. On the contrary existing literature can have both computation benefits as well (B,D).*
+
+**Concern with utility of different aspects of DPS: FedPSE suffers from significant accuracy drop at moderate sparsity of 0.9 (the plot with x value of 0.1 in Fig. 4)**
+
+*This is significantly concerning and thus further ablation of the real utility of various steps described in DPS is needed. Nevertheless, as already stated existing alternatives demonstrated benefits with sparsity of 0.2 and 0.1 while showing both computation and communication benefits.*
+
+*Moreover, it is well known that magnitude pruning (like top-K in the client side) requires retraining to gain the accuracy. Thus this can also be a potential reason for the authors to get significantly poor accuracy at high sparsity (Fig. 4).*
+
+**Please refer to (A) if the concern is only communication cost**
+
+*As the current work focuses on the communication benefits, I would like to refer the reader to (A) as well. This work showed that sending only sparse masks was sufficient enough for the federated learning paradigm, thus saving 32x communication cost.*
+
+I hope this summary would help the reviewers and authors to assess the contributions of the current manuscript. I have added the references at the bottom for their kind consideration and checking.
+
+(A) Sparse Random Networks for Communication-Efficient Federated Learning, arxiv 2022.
+(B) ZeroFL: Efficient On-Device Training for Federated Learning with Local Sparsity, ICLR 2022.
+(C) Model Pruning Enables Efficient Federated Learning on Edge Devices, TNNLS 2022.
+(D) Federated Dynamic Sparse Training: Computing Less, Communicating Less, Yet Learning Better, AAAI 2022."
+84,ogsUO9JHZu0,Efficient Trojan Injection: 90% Attack Success Rate Using 0.04% Poisoned Samples,Hh9Z2pazdM,What is the difference between this method and the Narcissus clean-label backdoor attack?,['~Minzhou_Pan1'],"I appreciate your submission. After reading the paper, I observed a striking resemblance between your formulation with the one in [1].
+In particular, the trigger-generating backdoor formulation in [1] is :
+$$
+\underset{\delta \in \Delta}{\min } \sum_{(x, y) \in D} \mathcal{L}\left(f_{\theta}(x+\delta), y\right)
+$$
+whereas in your paper, you formulate the trigger as follows:
+$$
+\min\_{C(t) \leq \epsilon} \sum_{(x, y) \in \mathcal{D}_b} L\left(f_\theta(x+t)), y^{\prime}\right)
+$$
+Both seem to utilize a pre-trained model to generate noise that minimizes loss on the target label. Could you explain how theoretically, your contribution differs from [1]?
+
+I hope to get some clarification. Thank you for your time!
+
+[1] Zeng, Yi, et al. ""NARCISSUS: A Practical Clean-Label Backdoor Attack with Limited Information."" arXiv preprint arXiv:2204.05255 (2022).
+
+"
+85,9eT2pA9P-vI,Adam Accumulation to Reduce Memory Footprints of both Activations and Gradients for Large-scale DNN Training,55_VfWNsIz,Interesting paper,['~Yuhan_Li3'],The idea behind the paper sounds great. It's really helpful for researchers to save memory during training. 
+86,4Vwx-VwS5b3,Implicit Neural Spatial Representations for Time-dependent PDEs,NCkbYxhjAVx,relationship with neural galerkin scheme,['~Yiping_Lu1'],"Dear authors
+
+congrats on the nice work. I'm writing this comment aim to understand the relationship between your paper and [1]. 
+
+[1] Bruna J, Peherstorfer B, Vanden-Eijnden E. Neural Galerkin Scheme with Active Learning for High-Dimensional Evolution Equations[J]. arXiv preprint arXiv:2203.01360, 2022."
+87,WoByU5W5te0,Neural Radiance Fields with Geometric Consistency for Few-Shot Novel View Synthesis,0iNbcr0Wkt,few-shot?,['~Xuan_Wang2'],"Why is it few-shot, not training from sparse view？"
+88,CPdc77SQfQ5,Win: Weight-Decay-Integrated Nesterov Acceleration for Adaptive Gradient Algorithms,tyXtllCK0X,Clarification on Nesterov + Adam results,['~Rohan_Anil1'],"As pointed by Reviewer FLq8, adding nesterov acceleration to existing adaptive methods is standard: See comment: https://openreview.net/forum?id=CPdc77SQfQ5&noteId=7fpHqssTGr4 -- (note: improvements from nesterov with shampoo have been mentioned in https://arxiv.org/pdf/2002.09018.pdf Table 1 Pg 11 as well as in https://arxiv.org/abs/2209.05310) 
+
+There is an experimental confound when citing Nadam as the implementation in Pytorch (https://pytorch.org/docs/stable/generated/torch.optim.NAdam.html) is quite different from the implementation (vanilla) in JAX as mentioned in FLq8 -- It would be good to clarify which nesterov version is used in Table 1 Page 7.
+
+For the experiments that are in Table 3 - A comparison against the vanilla nesterov + adam/lamb variants would be appreciated [1] -- This would establish if the extra memory overhead in WIN compared to vanilla nesterov is worth it.
+
+[1] see: https://github.com/google/init2winit/blob/master/init2winit/optimizer_lib/optimizers.py#L190 
+"
+89,PldynS56bN,Contextual Convolutional Networks,W1GnOxeGKWi,Wrt global conv kernels and learnable receptive fields,['~David_W._Romero1'],"Dear authors,
+
+thank you very much for your interesting paper!
+
+I would like to point you to some related work which constructs and learns CNNs with global convolutional kernels [1-6]. Among these, I believe FlexConv is of particular relevance, as similarly to your approach, it learns the sizes of the convolutional kernels directly from data during training. I believe that considering FlexConv on your related work would give the reader a better idea regarding the current stand point of your promising and interesting research.
+
+Best of luck with your submission! :)
+
+Cheers,
+
+ David
+
+
+[1] Romero, David W., et al. ""Ckconv: Continuous kernel convolution for sequential data."" arXiv preprint arXiv:2102.02611 (2021).
+
+[2] Romero, David W., et al. ""Flexconv: Continuous kernel convolutions with differentiable kernel sizes."" arXiv preprint arXiv:2110.08059 (2021).
+
+[3] Romero, David W., et al. ""Towards a General Purpose CNN for Long Range Dependencies in  D."" arXiv preprint arXiv:2206.03398 (2022).
+
+[4] Ding, Xiaohan, et al. ""Scaling up your kernels to 31x31: Revisiting large kernel design in cnns."" Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition. 2022.
+
+[5] Gu, Albert, Karan Goel, and Christopher Ré. ""Efficiently modeling long sequences with structured state spaces."" arXiv preprint arXiv:2111.00396 (2021).
+
+[6] Nguyen, Eric, et al. ""S4ND: Modeling Images and Videos as Multidimensional Signals Using State Spaces."" arXiv preprint arXiv:2210.06583 (2022)."
+90,s4WVupnJjmX,Explicit Box Detection Unifies End-to-End Multi-Person Pose Estimation,ky5_oPx1CVT,The infence speed comparison is unfaired and misleading(ED pose uses A100 while others use titan x or other gpu) Tab3 Fig5,['~Ke_Li16'],"The presentation of this paper is sufficient. But there are some downside in the experiment needs to be fixed.
+
+The inference speed comparison is unfaired. as mentioned in Appendix Sec A, the ED pose experiment is conducted ''on Nvidia A100 GPUs"". The inference speed is also tested on Nvidia Tesla A100. However, others in Tab3 and Tab8 are tested on Titan x, GTX 1080ti, or Nvidia Tesla V100. A100 is much faster than V100, even more than ~7x times faster than 1080ti (77.97 TFLOPS vs. 11.34 TFLOPS when fp16 is enabled). The Titan x is slower than 1080ti. This inference speed comparison(Tab3 Tab8 Fig5) is misleading, allowing the reader to think EDPose is much faster than other methods. For example, the speed of InsPose is tested on Titan x, FCPose is tested on 1080ti and PETR is tested on V100, which are all much slower than A100. And for the task of pose estimation, if one cannot derive the comparative performance run by the same speed under the same settings, it would be prone to conclude that the performance improvement was brought by the more parameters of the model's powerful backbone, encoder and detector networks from other similar works [1, 2, 3].
+
+
+Reference:
+1. Hao Zhang, et al. DINO: DETR with Improved Denoising Anchor Boxes for End-to-End Object Detection. arXiv 2022
+2. Shilong Liu, et al. DAB-DETR: Dynamic Anchor Boxes are Better Queries for DETR, ICLR 2022
+3. Xizhou Zhu et al. Deformable DETR: Deformable Transformers for End-to-End Object Detection, ICLR 2020"
+91,4vGwQqviud5,DPM-Solver++: Fast Solver for Guided Sampling of Diffusion Probabilistic Models,bReeD8mssS,Thanks for comparing DEIS,['~Qinsheng_Zhang1'],"Thank you for comparing DEIS and conducting lots of experiments for DEIS in high-resolution datasets. However, I have some questions about the DPM-Solver++
+1. It seems that DPM-Solver++ single step and DPM-Solver are equivalent when you choose the same timestamps scheduling in DPM-Solver, $s_i =t_\lambda((\lambda_i + \lambda_{i-1}) / 2)$ since line 6 only use the latest function evaluation similar to DPM-Solver. But experiments show there is a significant difference between the two algorithms. 
+2. It looks like DPM-Solver++ multiple step uses lower order warming start, line 4 is a first-order update step. In this case, will the convergence order will be bottlenecked by the warming start?
+"
+92,OpzV3lp3IMC,Self-conditioned Embedding Diffusion for Text Generation,HXmrWV3lnh,This paper is not anonymous and the results are dubious and not reproducible,['~Carmen_Amo_Alonso1'],"Hi
+I have major concerns about this paper:
+
+1) **this is NOT an anonymous submission**, i.e., clearly this is from DeepMind since Chinchila model used for evaluation is not released to public. This breaks the anonymity requirement of submission to ICLR and does positively bias the reviewer's scores for this paper, which is unfair to other submissions.
+
+2) The results of the paper are not reproducible, and the authors have not promised to release the codes either. The community therefore cannot benefit from this work. This paper follows the same model+objective as Li et al (https://arxiv.org/abs/2205.14217), except for additional self-conditioning on top of that for improvement over the baseline. However, as shown in the work of Li et al, usage of pretrained embeddings does not allow diffusion models train and Li et al emphasize to train the word embedding from scratch. So the baseline used as expressed in the paper should not work. Given that the other paper has a public code to test to certify it, this makes the results of this work dubious. 
+
+3) the method must be very sensitive on the pretrained embeddings as otherwise, the authors could have used the original pre-trained BERT embeddings rather than pretraining BERT from scratch on C4 dataset, which is rather a costly training procedure. This is not discussed in the paper.
+
+4) The NLL loss metric used to evaluate the model is not necessarily correlated with the text quality. Prior works have shown that low perplexity of generated text is not necessarily an indication of high quality but of degenerate behavior (Nadeem et al., 2020; Zhang et al.,2021) and have proposed closeness to the perplexity of human-written text as a better evaluation. Reporting the human evaluation on very few examples, as done in the paper, is questionable, and does not provide a proper assessment for the quality of generated texts.
+
+References:
+1) Nadeem et al, A systematic characterization of sampling algorithms for open-ended language generation, AACL, 2020
+2) Hugh Zhang, Daniel Duckworth, Daphne Ippolito, and Arvind Neelakantan. Trading off diversity and quality in natural language generation. In Proceedings of the Workshop on Human Evaluation of NLP Systems (HumEval), 2021.
+"
+93,1ROAstc9jv,ChiroDiff: Modelling chirographic data with Diffusion Models,HWvER2bn63,questions about the contribution,['~wei_chen45'],"In this paper, authors proposed that their method ""is the first Model to exhibit the potential to apply diffusion model on continuous time entities."" However, a very similar work Diffusion-Handwriting [1] has been proposed, using Diffusion models to generate continuous time series data. 
+
+I think there are too many similarities between this paper and Diffusion-handwriting. For example, DDPM is used to model the generation, and the data format is (x, y, pen state), and  can complete the task of generating handwriting.
+I think one of the most primary difference between the two papers is that the generation of diffusion-handwriting is the fixed length, while ChiroDiff is variable length. This seems that the noise predicted network is RNN-based structure of ChiroDiff, while Diffusion-Handwriting uses the CNN-based structure. The continuous time series generation of RNN-based structure has been widely studied since Sketch-RNN [2], so ChiroDiff is more like a combination of sketch-RNN and diffusion-handwriting. The author seems to have exaggerated his contribution in the paper.
+
+I expect authors to discuss the mainly contribution, or compare Diffusion-Handwriting in the paper.
+
+[1] Luhman, Troy, and Eric Luhman. ""Diffusion models for handwriting generation."" arXiv preprint arXiv:2011.06704 (2020).
+[2] Ha, David, and Douglas Eck. ""A neural representation of sketch drawings."" arXiv preprint arXiv:1704.03477 (2017)."
+94,e1e9CGUj-3,TT-NF: Tensor Train Neural Fields,_oUwl79o-nf,Comment on the paper novelty w.r.t. tensor decompositions,['~Rafael_Ballester-Ripoll1'],"I would like to weigh in regarding the paper's merits in the tensor decomposition front. The proposed octet representation that merges x, y, z subindices level-wise is a promising new improvement over standard QTT, and could act as a drop-in replacement in other applications where QTT is beneficial (there are many). A similar point can be made about the sampling algorithm: batched reconstruction from tensors in the TT format (and variations thereof) is a very common bottleneck in learning pipelines that exploit the low-rank ansatz, and the proposed scheme to alleviate the computational burden is certainly welcome. Last, the ability to learn noisy tensors is valuable per se, since the much celebrated cross-approximation algorithm has been shown to be unstable for this task. Indeed, the scheme is more flexible than cross-approximation in the sense that it can be used when the set of available samples is dictated by an external process (ray traversal paths in this case, but there can be many other scenarios) and cannot be acquired on demand as the cross method requires. In the context of learning tensor decompositions from given data, this is a novel contribution in its own right."
+95,e1e9CGUj-3,TT-NF: Tensor Train Neural Fields,a-7wpc8Q1dD,Novelty,['~Ivan_Oseledets1'],"I've added a couple of answers to the reviewers, just to summarize: I think this paper provides novelty for tensor decomposition field, and solves an important problem in the field."
